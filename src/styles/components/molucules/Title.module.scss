@@ -1,0 +1,19 @@
+@import '../../mixins/color';
+@import '../../mixins/text';
+
+.common {
+  font-family: Sansation;
+  font-weight: bold;
+  text-align: center;
+  background: $color-title-gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title {
+  font-size: $title;
+}
+
+.subtitle {
+  font-size: $sub-title;
+}
