@@ -6,13 +6,15 @@ interface PROPS {
   color?: 'primary' | 'secondary',
   size?: 'small' | 'medium' | 'large',
   className?: string,
+  onClick: () => void
 }
 
 const Button: VFC<PROPS> = ({
   children,
   color = 'primary',
   size = 'medium',
-  className
+  className,
+  onClick
 }) => {
 return (
     <MUIBtn
@@ -20,6 +22,7 @@ return (
       color={ color }
       size={ size }
       className={className}
+      onClick={onClick}
     >
       { children }
     </MUIBtn>
