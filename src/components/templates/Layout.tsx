@@ -20,6 +20,7 @@ const Layout: VFC<PROPS> = ({
       <header>
         <Navbar/>
       </header>
+      <main>{ children }</main>
       <footer>
       </footer>
     </div>
