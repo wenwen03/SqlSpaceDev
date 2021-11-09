@@ -2,10 +2,9 @@ import Link from 'next/link';
 import React, { VFC } from 'react';
 import Logo from '../molucules/Logo';
 import styles from "@/styles/components/organisms/Navbar.module.scss"
-import YellowButton from '../atoms/YellowButton';
+import Button from '../atoms/Button';
 
 const Navbar: VFC = () => {
-  const [value, setValue] = React.useState(0);
 
   return (
     <div className={styles.navbar}>
@@ -17,7 +16,7 @@ const Navbar: VFC = () => {
         <Link href="/about">
           <a className={styles.link}>About</a>
         </Link>
-        <YellowButton/>
+        <Button>login</Button>
       </div>
     </div>
   )
