@@ -4,16 +4,23 @@ import { Button as MUIBtn } from '@mui/material';
 interface PROPS {
   children: ReactNode,
   color?: 'primary' | 'secondary',
-  size?: 'small' | 'medium' | 'large'
+  size?: 'small' | 'medium' | 'large',
+  className?: string,
 }
 
 const Button: VFC<PROPS> = ({
   children,
   color = 'primary',
-  size = 'medium'
+  size = 'medium',
+  className
 }) => {
 return (
-    <MUIBtn variant="contained" color={ color } size={ size } >
+    <MUIBtn
+      variant="contained"
+      color={ color }
+      size={ size }
+      className={className}
+    >
       { children }
     </MUIBtn>
 )}
