@@ -3,8 +3,10 @@ import P from '../atoms/P';
 import Title from '../molucules/Title'
 import styles from '@/styles/components/organisms/TopText.module.scss'
 import Button from '@/components/atoms/Button'
+import  Router from 'next/router';
 
 const TopText: VFC = () => {
+  const toHome = () => Router.push('/home')
   return (
     <div className={ styles.toptext}>
       <Title/>
@@ -19,7 +21,11 @@ const TopText: VFC = () => {
         基礎的なSQLから応用的なSQLまでゲーム感覚で楽しく学び、<br/>
         優秀な社員へと成長してみましょう！
       </P>
-      <Button className={ styles.btn } size='large'>start free</Button>
+      <Button
+        className={ styles.btn }
+        size='large'
+        onClick={ toHome }
+      >start free</Button>
     </div>
   )
 }
