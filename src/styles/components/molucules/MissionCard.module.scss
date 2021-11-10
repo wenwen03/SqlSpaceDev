@@ -1,0 +1,7 @@
+@import '../../mixins/margin.scss';
+
+.description {
+  white-space: pre-line;
+  line-height: 70%;
+  margin: $margin-mvw;
+}
