@@ -1,0 +1,7 @@
+@import '../../mixins/color.scss';
+@import '../../mixins/padding.scss';
+
+.paper {
+  background-color: $color-yellow-trans;
+  padding: $padding-mvw;
+}
