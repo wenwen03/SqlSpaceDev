@@ -1,0 +1,7 @@
+@import '../../mixins/margin.scss';
+@import '../../mixins/color.scss';
+
+.h3 {
+  margin: $margin-mvw;
+  color: $color-white;
+}
