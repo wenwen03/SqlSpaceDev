@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { VFC } from 'react'
 import styles from '@/styles/components/atoms/H1.module.scss';
+import { Typography } from '@mui/material';
 
 interface PROPS {
   children: ReactNode,
@@ -10,6 +11,10 @@ interface PROPS {
 const H1: VFC<PROPS> = ({
   children,
   className 
-}) => <h1 className={`${ className } ${ styles.h1 }`}>{ children }</h1>
+}) => (
+  <Typography variant='h1' className={`${ className } ${ styles.h1 }`}>
+    { children }
+  </Typography>
+)
 
 export default H1

@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { VFC } from 'react'
 import styles from '@/styles/components/atoms/P.module.scss'
+import { Typography } from '@mui/material'
 
 interface PROPS {
   children: ReactNode,
@@ -10,6 +11,10 @@ interface PROPS {
 const P: VFC<PROPS> = ({
   children,
   className
-}) => <p className={`${className} ${styles.p}`}>{ children }</p>
+}) => (
+  <Typography variant='body1' className={`${className} ${styles.p}`}>
+    { children }
+  </Typography>
+)
 
 export default P
