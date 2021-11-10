@@ -1,0 +1,7 @@
+@import '../../mixins/color.scss';
+
+.skillCircle {
+  &:hover {
+    background: $color-orange;
+  }
+}
