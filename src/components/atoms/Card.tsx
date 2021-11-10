@@ -4,30 +4,25 @@ import CardContent from '@mui/material/CardContent';
 import { CardActionArea } from '@mui/material';
 
 interface PROPS {
-  contents: ReactNode,
-  actions: ReactNode,
+  children: ReactNode,
   variant?: 'elevation' | 'outlined'
 }
 
 const Card: VFC<PROPS> = ({
-  contents,
-  actions,
+  children,
   variant = 'outlined'
 }) => ( 
   <MUICard
     variant={variant} 
     sx={{
-      border: 'solid 1px yellow',
+      border: 'solid 1px #ecd37e',
       background: 'black',
       color: 'white'
     }}
   >
     <CardContent>
-      { contents }
+      { children}
     </CardContent>
-    <CardActionArea>
-      { actions }
-    </CardActionArea>
   </MUICard>
 )
 
