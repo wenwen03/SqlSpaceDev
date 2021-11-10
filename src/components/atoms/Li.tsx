@@ -11,7 +11,14 @@ const Li: VFC<PROPS> = ({
   className
 }) => (
   <ul>
-    { list.map(text => <li className={`${className} ${styles.li}`}>{ text }</li>) }
+    { list.map(( text, index ) => (
+      <li
+        className={`${className} ${styles.li}`}
+        key={index}
+      >
+        { text }
+      </li>)
+    )}
   </ul>
 )
 
