@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface PaletteColor {
@@ -9,7 +9,7 @@ declare module '@mui/material/styles' {
   }
 }
  
-export default createTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#ECD37E',
@@ -17,3 +17,5 @@ export default createTheme({
     }
   }
 });
+
+export default responsiveFontSizes(theme)
