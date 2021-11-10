@@ -1,0 +1,17 @@
+@import '../../mixins/color.scss';
+@import '../../mixins/padding.scss';
+
+.bubble {
+  position: relative;
+  border: solid 1px $color-yellow;
+  background-color: $color-shadow;
+  border-radius: 30px;
+  padding: $padding-mvw $padding-lvw;
+  max-width: 400px;
+}
+
+.avatar {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+}
