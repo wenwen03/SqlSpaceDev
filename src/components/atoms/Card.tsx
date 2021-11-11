@@ -5,14 +5,17 @@ import { CardActionArea } from '@mui/material';
 
 interface PROPS {
   children: ReactNode,
-  variant?: 'elevation' | 'outlined'
+  variant?: 'elevation' | 'outlined',
+  className: string
 }
 
 const Card: VFC<PROPS> = ({
   children,
-  variant = 'outlined'
+  variant = 'outlined',
+  className
 }) => ( 
   <MUICard
+    className={ className }
     variant={variant} 
     sx={{
       border: 'solid 1px #ecd37e',
