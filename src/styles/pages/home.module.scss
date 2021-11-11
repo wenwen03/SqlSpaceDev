@@ -1,0 +1,43 @@
+@import '../mixins/color.scss';
+
+.home {
+  background: $color-home-back;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 0 50% 1fr 0;
+  grid-template-rows: 0 5% 40% 1fr 0;
+  row-gap: 3%;
+  column-gap: 3%;
+}
+
+.name-label {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.skill-tree {
+  grid-row-start: 3;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.mission-desc {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.mission-card {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+
