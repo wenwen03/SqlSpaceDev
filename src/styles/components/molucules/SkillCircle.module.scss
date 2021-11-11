@@ -1,7 +1,18 @@
 @import '../../mixins/color.scss';
 
-.skillCircle {
+.locked {
+  background-color: gray;
+}
+
+.available {
+  cursor: pointer;
+  background-color: $color-yellow;
   &:hover {
-    background: $color-orange;
+    background-color: $color-orange;
   }
+}
+
+.completed {
+  cursor: pointer;
+  background-color: $color-orange;
 }
