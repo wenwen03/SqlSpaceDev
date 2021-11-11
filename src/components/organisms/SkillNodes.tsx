@@ -1,7 +1,6 @@
 import Grid from '@mui/material/Grid'
 import React, { VFC } from 'react'
 import SkillCircle from '../molucules/SkillCircle'
-import styles from '@/styles/components/organisms/SkillNodes.module.scss'
 
 const missions: Array<Mission> = [
   { name: null, status: 'locked'},
@@ -43,13 +42,19 @@ interface Mission {
 
 type MissionStatus = 'completed' | 'available' | 'locked'
 
-const SkillNodes: VFC = () => (
+interface PROPS {
+  className 
+}
+
+const SkillNodes: VFC<PROPS> = ({
+  className
+}) => (
   <Grid
     container
     rowSpacing={1}
     justifyContent='center'
     alignItems='center'
-    className={ styles.skillTree }
+    className={ className }
   >
     { missions.map(( mission, index ) => (
       <SkillCircle
