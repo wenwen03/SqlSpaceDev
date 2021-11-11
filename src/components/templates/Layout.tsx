@@ -17,14 +17,14 @@ const Layout: VFC<PROPS> = ({
   mainClass
 }) => {
   return (
-    <div className={ wholeClass }>
+    <div className={`${ wholeClass } ${ styles.layout }`}>
       <Head>
         <title>{ title }</title>
       </Head>
-      <header>
+      <header className={ styles.header }>
         <Navbar/>
       </header>
-      <main className={ mainClass }>{ children }</main>
+      <main className={`${ mainClass } ${ styles.main }`}>{ children }</main>
       <footer>
       </footer>
     </div>
