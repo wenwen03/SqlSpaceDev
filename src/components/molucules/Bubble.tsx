@@ -1,7 +1,7 @@
 import React, { VFC } from 'react'
 import Paper from '@/components/atoms/Paper'
 import styles from '@/styles/components/molucules/Bubble.module.scss'
-import Avatar from '@/components/atoms/ Avatar'
+import Avatar from '@/components/atoms/Avatar'
 import P from '../atoms/P'
 
 interface PROPS {
