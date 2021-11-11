@@ -1,10 +1,15 @@
 import Link from 'next/link';
 import React, { VFC } from 'react';
-import Logo from '../molucules/Logo';
+import Logo from '@/components/molucules/Logo';
 import styles from "@/styles/components/organisms/Navbar.module.scss"
-import Button from '../atoms/Button';
+import Button from '@/components/atoms/Button';
+import Router from 'next/router';
 
 const Navbar: VFC = () => {
+
+  const login = function(): void {
+    Router.push('/home')
+  }
 
   return (
     <div className={styles.navbar}>
@@ -16,7 +21,7 @@ const Navbar: VFC = () => {
         <Link href="/about">
           <a className={styles.link}>About</a>
         </Link>
-        <Button>login</Button>
+        <Button onClick={ login }>login</Button>
       </div>
     </div>
   )
