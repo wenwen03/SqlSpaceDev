@@ -6,14 +6,16 @@ import P from '../atoms/P'
 
 interface PROPS {
   comment: string,
-  speaker: 'dog' | 'human'
+  speaker: 'dog' | 'human',
+  className?: string
 }
 
 const Bubble: VFC<PROPS> = ({
   comment,
-  speaker
+  speaker,
+  className
 }) => (
-  <Paper className={ styles.bubble } >
+  <Paper className={`${ styles.bubble } ${ className }`} >
     <Avatar
       alt='charactor icon'
       src={ speaker === 'dog'? '/img/dog-icon.jpg' : '/img/human-icon.png'}
