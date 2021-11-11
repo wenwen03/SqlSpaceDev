@@ -15,6 +15,9 @@ const theme = createTheme({
       main: '#ECD37E',
       darker: '#053e85',
     }
+  },
+  typography: {
+    fontSize: 12
   }
 });
 
