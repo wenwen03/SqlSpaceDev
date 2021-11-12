@@ -7,38 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import styles from '@/styles/components/molucules/TableWindow.module.scss'
 import Card from '../atoms/Card';
+import Button from '../atoms/Button';
 
-const ROWS = [
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-  { id: 101, name: 'furuta', 'moved_at': '2021/11/11'},
-];
-
-const COLUMNS = [
-  'id', 'name', 'moved_at'
-]
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = styled(TableRow)(() => ({
   '&:nth-of-type(odd)': {
     backgroundColor: 'gray'
   },
@@ -47,18 +18,33 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   }
 }));
 
-export default function TableWindow() {
-  return (
+interface PROPS {
+  title: string,
+  rows: Array<any>,
+  columns: Array<string>,
+  onClick: () => void
+}
+
+const TableWindow: VFC<PROPS> = ({
+  title,
+  rows,
+  columns,
+  onClick
+}) => (
+  <>
+    <Card className={ styles.title }>
+      { title }
+      <Button onClick={ onClick }>close</Button>
+    </Card>
     <Card className={ styles['table-window'] } noPadding >
       <Table 
         sx={{ minWidth: 450 }}
         size="small"
         stickyHeader
-        aria-label="a dense table"
       >
         <TableHead >
           <TableRow >
-            { COLUMNS.map(( column, index ) => (
+            { columns.map(( column, index ) => (
               <TableCell
                 align={ index ? 'right': 'left' }
                 key={ index } 
@@ -70,9 +56,9 @@ export default function TableWindow() {
           </TableRow>
         </TableHead>
         <TableBody>
-          { ROWS.map(( row, index ) => (
+          { rows.map(( row, index ) => (
             <StyledTableRow key={ index } >
-              { COLUMNS.map(( column, index ) => (
+              { columns.map(( column, index ) => (
                 <TableCell 
                   component="th"
                   scope='row'
@@ -88,5 +74,7 @@ export default function TableWindow() {
         </TableBody>
       </Table>
     </Card>
-  );
-}
+  </>
+);
+
+export default TableWindow;
