@@ -6,6 +6,7 @@ import FastfoodIcon from '@mui/icons-material/Fastfood';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import BoltIcon from '@mui/icons-material/Bolt';
 import styles from '@/styles/components/molucules/ResourceCard.module.scss'
+import P from '../atoms/P';
 
 interface PROPS {
   type: 'oil' | 'ice' | 'food' | 'wood' | 'power',
@@ -34,7 +35,7 @@ const ResourceCard: VFC<PROPS> = ({
   return (
     <Paper className={ styles.paper } square >
       { icon() }
-      { amount }
+      <P className={ styles.text }>{ amount }</P>
     </Paper>
   )
 }
