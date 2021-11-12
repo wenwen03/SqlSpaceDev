@@ -8,22 +8,21 @@ import H3 from '../atoms/H3'
 
 interface PROPS {
   current: number,
-  max: number
+  max: number,
+  onClick: () => void
 }
 const TitleWindow: VFC<PROPS> = ({
   current,
   max,
+  onClick
 }) => {
-  const create = function(): void {
-    console.log('create')
-  }
 
   return (
     <Card className={ styles['title-window']}>
       <H3>Residence</H3>
       <P>部屋数 { current } / { max }</P>
       <Button 
-        onClick={ create } 
+        onClick={ onClick } 
         startIcon={ <ControlPointIcon/> }
       >
         create room
