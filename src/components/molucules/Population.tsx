@@ -1,8 +1,8 @@
-import { Paper } from '@mui/material'
 import React, { VFC } from 'react'
 import styles from '@/styles/components/molucules/Population.module.scss'
 import SupervisedUserCircleRoundedIcon from '@mui/icons-material/SupervisedUserCircleRounded';
 import P from '../atoms/P';
+import Paper from '../atoms/Paper';
 
 interface PROPS {
   className?: string,
