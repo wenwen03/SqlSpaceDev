@@ -1,0 +1,7 @@
+@import '../../mixins/padding.scss';
+
+.resource-bar {
+  display: flex;
+  padding: $padding-svw;
+  gap: 1%;
+}
