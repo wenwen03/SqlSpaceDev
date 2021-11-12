@@ -6,7 +6,8 @@ interface PROPS {
   color?: 'primary' | 'secondary',
   size?: 'small' | 'medium' | 'large',
   className?: string,
-  onClick: () => void
+  onClick: () => void,
+  startIcon?: ReactNode
 }
 
 const Button: VFC<PROPS> = ({
@@ -14,7 +15,8 @@ const Button: VFC<PROPS> = ({
   color = 'primary',
   size = 'medium',
   className,
-  onClick
+  onClick,
+  startIcon
 }) => {
 return (
     <MUIBtn
@@ -23,6 +25,7 @@ return (
       size={ size }
       className={className}
       onClick={onClick}
+      startIcon={ startIcon }
     >
       { children }
     </MUIBtn>
