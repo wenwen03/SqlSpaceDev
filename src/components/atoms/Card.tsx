@@ -1,6 +1,5 @@
 import React, { ReactNode, VFC } from 'react'
 import MUICard from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 
 interface PROPS {
   children: ReactNode,
@@ -21,12 +20,11 @@ const Card: VFC<PROPS> = ({
     sx={{
       border: 'solid 1px #ecd37e',
       background: 'black',
-      color: 'white'
+      color: 'white',
+      padding: noPadding ? '' : '16px'
     }}
   >
-    <CardContent sx={{ padding: noPadding ? '0' : '' }}>
-      { children}
-    </CardContent>
+    { children}
   </MUICard>
 )
 
