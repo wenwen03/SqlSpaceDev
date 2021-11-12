@@ -1,18 +1,19 @@
 import React, { ReactNode, VFC } from 'react'
 import MUICard from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { CardActionArea } from '@mui/material';
 
 interface PROPS {
   children: ReactNode,
   variant?: 'elevation' | 'outlined',
-  className: string
+  className?: string,
+  noPadding?: boolean
 }
 
 const Card: VFC<PROPS> = ({
   children,
   variant = 'outlined',
-  className
+  className,
+  noPadding = false
 }) => ( 
   <MUICard
     className={ className }
@@ -23,7 +24,7 @@ const Card: VFC<PROPS> = ({
       color: 'white'
     }}
   >
-    <CardContent>
+    <CardContent sx={{ padding: noPadding ? '0' : '' }}>
       { children}
     </CardContent>
   </MUICard>
