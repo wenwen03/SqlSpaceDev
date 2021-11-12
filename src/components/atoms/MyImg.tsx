@@ -6,7 +6,8 @@ interface PROPS {
   width?: number,
   height?: number,
   alt?: string,
-  loading?: 'lazy' | 'eager'
+  loading?: 'lazy' | 'eager',
+  onClick?: () => void
 }
 
 const MyImg: VFC<PROPS> = ({
@@ -15,9 +16,11 @@ const MyImg: VFC<PROPS> = ({
   alt = 'image',
   width = 100,
   height = 100,
-  loading = 'lazy'
+  loading = 'lazy',
+  onClick
 }) => (
   <img
+    onClick={ onClick }
     className={ className }
     width={ width }
     height={ height }
