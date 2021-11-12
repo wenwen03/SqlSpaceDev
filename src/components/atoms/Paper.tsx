@@ -6,18 +6,22 @@ interface PROPS {
   children: ReactNode,
   className?: string,
   variant?: 'elevation' | 'outlined',
-  elevation?: number
+  elevation?: number,
+  square?: boolean
 }
 const Paper: VFC<PROPS> = ({
   children,
   className,
   variant = 'elevation',
-  elevation = 0
+  elevation = 0,
+  square = false
 }) => ( 
   <MUIPaper
     className={`${className} ${styles.paper}`}
     elevation={ elevation}
-    variant={variant}>
+    variant={variant}
+    square={ square }
+  >
     { children }
   </MUIPaper>
 )
