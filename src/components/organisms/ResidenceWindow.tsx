@@ -14,17 +14,26 @@ const COLUMNS = [
 ]
 
 interface PROPS {
-  clickaway: () => void
+  clickaway: () => void,
+  startSQL: () => void
+  endSQL: () => void
 }
 
 const ResidenceWindow: VFC<PROPS> = ({
-  clickaway
+  clickaway,
+  startSQL,
+  endSQL
 }) => {
 
   // テーブル表示切替
   const [tableFlg, setTableFlg] = useState(false)
-  const toggle = function(): void {
-    setTableFlg(pre => !pre)
+  const toTable = function(): void {
+    setTableFlg(true)
+    startSQL()
+  }
+  const toTitle = function(): void {
+    setTableFlg(false)
+    endSQL()
   }
 
   return (
@@ -34,13 +43,13 @@ const ResidenceWindow: VFC<PROPS> = ({
       >
         { !tableFlg ? 
           <TitleWindow 
-            onClick={ toggle }
+            onClick={ toTable }
             current={0} 
             max={0} 
           /> :
           <TableWindow
             title='yamada-haitsu'
-            onClick={toggle}
+            onClick={ toTitle }
             columns={ COLUMNS }
             rows={ ROWS }
           />
