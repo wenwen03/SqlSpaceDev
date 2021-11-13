@@ -1,0 +1,35 @@
+@import '../../mixins/margin.scss';
+
+.sql-runner {
+  position: absolute;
+  display: grid;
+  right: 0;
+  bottom: 0;
+  gap: $margin-svw;
+  margin: $margin-svw;
+  width: 60%;
+  height: 250px;
+  grid-template-rows: 1fr 120px;
+  grid-template-columns: 1fr 200px;
+}
+
+.monitor {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.reward-card {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.sql-btn-card {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
