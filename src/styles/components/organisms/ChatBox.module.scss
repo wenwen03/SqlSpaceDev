@@ -1,0 +1,17 @@
+@import '../../mixins/margin.scss';
+
+.chat-box {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  overflow: scroll;
+  transition: all .5s;
+}
+
+.sql-mode {
+  bottom: 0;
+}
+
+.bubble {
+  margin: $margin-mvw;
+}
