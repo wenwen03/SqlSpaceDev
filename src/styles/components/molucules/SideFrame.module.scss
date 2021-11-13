@@ -1,0 +1,12 @@
+@import '../../mixins/margin.scss';
+
+.side-frame {
+  display: flex;
+  align-items: center;
+  gap: $margin-svw;
+}
+
+.frame {
+  height: 100%;
+  width: auto
+}
