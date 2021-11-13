@@ -5,11 +5,13 @@ import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import styles from '@/styles/components/molucules/SqlBtnCard.module.scss'
 
 interface PROPS {
-  className?: string
+  className?: string,
+  run: () => void
 }
 
 const SqlBtnCard: VFC<PROPS> = ({
-  className
+  className,
+  run
 }) => {
   const hoge = () => console.log('hoge')
   return (
@@ -29,7 +31,7 @@ const SqlBtnCard: VFC<PROPS> = ({
         </Button>
       </div>
       <Button 
-        onClick={ hoge }
+        onClick={ run }
         color='secondary' 
         startIcon={ <DirectionsRunIcon/> }
         className={ styles['run-btn'] }
