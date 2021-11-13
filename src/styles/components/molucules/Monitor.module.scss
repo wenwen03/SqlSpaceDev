@@ -1,18 +1,12 @@
 @import '../../mixins/color.scss';
 @import '../../mixins/margin.scss';
 
-.monitor {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
 .textarea {
   width: 100%;
   margin: $margin-svw 0;
-  background-color: $color-shadow;
 }
 
 .input {
   color: $color-white;
+  background-color: $color-shadow;
 }
