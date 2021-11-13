@@ -2,15 +2,18 @@ import React, { useState, VFC } from 'react'
 import Residence from '../molucules/Residence'
 import ResidenceWindow from './ResidenceWindow'
 import styles from '@/styles/components/organisms/InteractiveResidence.module.scss'
+import ResidenceEntity from '@/types/ResidenceEntity'
 
 interface PROPS {
   startSQL: () => void
-  endSQL: () => void
+  endSQL: () => void,
+  entity: ResidenceEntity
 }
 
 const InterractiveResidence: VFC<PROPS> = ({
   startSQL,
-  endSQL
+  endSQL,
+  entity
 }) => { 
 
   const [ focusFlg, setFocusFlg ] = useState(false);
@@ -25,7 +28,14 @@ const InterractiveResidence: VFC<PROPS> = ({
   return (
     <div className={ styles['interactive-residence'] }>
       <Residence focusFunc={ focus }/>
-      { focusFlg && <ResidenceWindow startSQL={ startSQL } endSQL={ endSQL } clickaway={ clickaway } /> }
+      { 
+        focusFlg && <ResidenceWindow
+          entity={ entity }
+          startSQL={ startSQL } 
+          endSQL={ endSQL } 
+          clickaway={ clickaway } 
+        />
+      }
     </div>
   )
  }
