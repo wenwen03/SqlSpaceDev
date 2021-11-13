@@ -1,0 +1,22 @@
+@import '../../mixins/margin.scss';
+
+.sql-btn-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.secondary-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $margin-mvw;
+  width: 100%;
+}
+
+.secondary-btn {
+  width: 45%
+}
+
+.run-btn {
+  width: 100%;
+}
