@@ -1,5 +1,6 @@
 import React, { ReactNode, VFC } from 'react';
 import { Button as MUIBtn } from '@mui/material';
+import styles from '@/styles/components/atoms/Button.module.scss'
 
 interface PROPS {
   children: ReactNode,
@@ -7,7 +8,8 @@ interface PROPS {
   size?: 'small' | 'medium' | 'large',
   className?: string,
   onClick: () => void,
-  startIcon?: ReactNode
+  startIcon?: ReactNode,
+  isEmphasize?: boolean
 }
 
 const Button: VFC<PROPS> = ({
@@ -16,14 +18,15 @@ const Button: VFC<PROPS> = ({
   size = 'medium',
   className,
   onClick,
-  startIcon
+  startIcon,
+  isEmphasize = false
 }) => {
 return (
     <MUIBtn
       variant="contained"
       color={ color }
       size={ size }
-      className={className}
+      className={`${ className } ${ isEmphasize ? styles.emphasize : '' }`}
       onClick={onClick}
       startIcon={ startIcon }
     >

@@ -1,0 +1,16 @@
+@import '../../mixins/color.scss';
+
+.emphasize {
+  animation-name: blinking;
+  animation-duration: .7s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blinking {
+  0% {
+    box-shadow: 0 0 50px $color-orange;
+  }
+  100% {
+    box-shadow: 0 0 10px $color-orange;
+  }
+}
