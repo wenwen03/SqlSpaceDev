@@ -3,8 +3,6 @@ import Residence from '../molucules/Residence'
 import ResidenceWindow from './ResidenceWindow'
 import styles from '@/styles/components/organisms/InteractiveResidence.module.scss'
 import ResidenceEntity from '@/types/ResidenceEntity'
-import missionSlice from '@/redux/missions/slice'
-import { useDispatch } from 'react-redux'
 
 interface PROPS {
   startSQL: () => void
@@ -18,12 +16,9 @@ const InterractiveResidence: VFC<PROPS> = ({
   entity
 }) => { 
 
-  const dispatch = useDispatch()
   const [ focusFlg, setFocusFlg ] = useState(false);
-  const focus = () => {
-    setFocusFlg(true)
-    dispatch(missionSlice.actions.nextStep('InteractiveResidence'))
-  }
+  const focus = () => setFocusFlg(true)
+
   const clickaway = () => {
     // setFocusFlg(false)
     // endSQL()
