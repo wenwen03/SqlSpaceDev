@@ -1,6 +1,9 @@
 import React, { ReactNode, VFC } from 'react';
 import { Button as MUIBtn } from '@mui/material';
 import styles from '@/styles/components/atoms/Button.module.scss'
+import { useMissionState } from '@/redux/missions/selectors';
+import { useDispatch } from 'react-redux';
+import missionSlice from '@/redux/missions/slice';
 
 interface PROPS {
   children: ReactNode,
@@ -9,7 +12,7 @@ interface PROPS {
   className?: string,
   onClick: () => void,
   startIcon?: ReactNode,
-  isEmphasize?: boolean
+  name?: string
 }
 
 const Button: VFC<PROPS> = ({
@@ -19,15 +22,24 @@ const Button: VFC<PROPS> = ({
   className,
   onClick,
   startIcon,
-  isEmphasize = false
+  name
 }) => {
-return (
+
+  const state = useMissionState().mission
+  const dispatch = useDispatch()
+
+  const btnClick = () => {
+    onClick()
+    name ? dispatch(missionSlice.actions.nextStep(name)) : void(0)
+  }
+
+  return (
     <MUIBtn
       variant="contained"
       color={ color }
       size={ size }
-      className={`${ className } ${ isEmphasize ? styles.emphasize : '' }`}
-      onClick={onClick}
+      className={`${ className } ${ state.isEmphasize[name] ? styles.emphasize : '' }`}
+      onClick={ btnClick }
       startIcon={ startIcon }
     >
       { children }
