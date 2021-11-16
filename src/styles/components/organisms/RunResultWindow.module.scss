@@ -1,0 +1,15 @@
+@import '../../mixins/margin.scss';
+@import '../../mixins/color.scss';
+
+.run-result-window {
+  text-align: center;
+}
+
+.modal-body {
+  margin: $margin-mvw;
+  min-width: 300px;
+}
+
+.correct {
+  color: $color-orange;
+}
