@@ -1,3 +1,4 @@
+import { useMissionState } from '@/redux/missions/selectors';
 import TextField from '@mui/material/TextField';
 import React, { ChangeEvent, VFC } from 'react'
 
@@ -15,16 +16,22 @@ const Textarea: VFC<PROPS> = ({
   textareaClass,
   label,
   rows = 1
-}) => (
-  <TextField
-    onChange={ onChange }
-    className={ className }
-    label={ label }
-    type='text'
-    rows={ rows }
-    multiline
-    InputProps={{ className: textareaClass }}
-  />
-)
+}) => {
+
+  const state = useMissionState().mission
+
+  return (
+    <TextField
+      onChange={ onChange }
+      className={ className }
+      defaultValue={ state.initialText }
+      label={ label }
+      type='text'
+      rows={ rows }
+      multiline
+      InputProps={{ className: textareaClass }}
+    />
+  )
+}
 
 export default Textarea
