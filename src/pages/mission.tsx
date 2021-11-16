@@ -11,6 +11,8 @@ import SQLRunner from '@/components/organisms/SQLRunner'
 import ResidenceEntity from '@/types/ResidenceEntity'
 import ResidenceRow from '@/types/ResidenceRow'
 import { useMissionState } from '@/redux/missions/selectors'
+import CompleteModal from '@/components/organisms/CompleteModal'
+import RunResultWindow from '@/components/organisms/RunResultWindow'
 
 const REWARDS: Array<Reward> = [
   { icon: <FastfoodIcon/>, amount: 1000 }
@@ -43,6 +45,12 @@ const mission: VFC = () => {
     updateResidenceList([ ...residenceList ])
   }
 
+  const [showCompleteModal, setShowCompleteModa] = useState(false)
+  const closeCompleteModal = () => setShowCompleteModa(false)
+
+  const [showResultModal, setShowResultModal] = useState(true)
+  const closeResultModal = () => setShowResultModal(false)
+
   const state = useMissionState().mission
 
   return (
@@ -63,6 +71,8 @@ const mission: VFC = () => {
       }
       { !sqlFlg && <BottomMenu /> }
       { sqlFlg && <SQLRunner rewards={ REWARDS } sqlAPI={ sqlAPI } /> }
+      <CompleteModal isOpen={ showCompleteModal } onClose={ closeCompleteModal }/>
+      <RunResultWindow isOpen={showResultModal} onClose={closeResultModal} result=''/>
       <ChatBox 
         step={ state.step }
         sqlFlg={ sqlFlg }
