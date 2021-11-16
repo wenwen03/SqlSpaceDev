@@ -9,7 +9,7 @@ declare module '@mui/material/styles' {
   }
 }
  
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: '#ECD37E',
@@ -21,4 +21,6 @@ const theme = createTheme({
   }
 });
 
-export default responsiveFontSizes(theme)
+theme = responsiveFontSizes(theme)
+
+export default theme
