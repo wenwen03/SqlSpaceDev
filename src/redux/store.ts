@@ -1,14 +1,14 @@
 import { Store, combineReducers } from 'redux';
 import logger from 'redux-logger';
 import { configureStore } from '@reduxjs/toolkit';
-import counterSlice, { initialState as counterState } from './missions/slice';
+import missionSlice, { initialState as missionState } from './missions/slice';
 
 const rootReducer = combineReducers({
-  counter: counterSlice.reducer,
+  mission: missionSlice.reducer,
 });
 
 const preloadedState = () => {
-  return { counter: counterState };
+  return { mission:  missionState };
 };
 
 export type StoreState = ReturnType<typeof preloadedState>;

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { CounterState } from './slice';
+import { MissionState } from './slice';
 
-export const useCounterState = () => {
-  return useSelector((state: { counter: CounterState }) => state);
+export const useMissionStateState = () => {
+  return useSelector((state: { mission: MissionState }) => state);
 };

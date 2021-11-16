@@ -1,32 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export type CounterState = {
-  count: number;
-  loading: boolean;
-  error: boolean;
-  errorMessage: string;
+export interface MissionState {
+  isEmphasizeBtn: boolean
 };
 
-export const initialState: CounterState = {
-  count: 0,
-  loading: false,
-  error: false,
-  errorMessage: '',
+export const initialState: MissionState = {
+  isEmphasizeBtn: false
 };
 
-const counterSlice = createSlice({
+const missionSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    incrementCounter: (state, action: PayloadAction<number>) => ({
+    emphasizeBtn: (state) => ({
       ...state,
-      count: state.count + action.payload,
+      isEmphasizeBtn: true
     }),
-    decrementCounter: (state, action: PayloadAction<number>) => ({
+    unemphasizeBtn: (state, action: PayloadAction<boolean>) => ({
       ...state,
-      count: state.count - action.payload,
+      isEmphasizeBtn: action.payload
     }),
   },
 });
 
-export default counterSlice;
+export default missionSlice;
