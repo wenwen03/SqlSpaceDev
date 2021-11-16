@@ -2,6 +2,8 @@ import { ReactNode, VFC } from 'react'
 import styles from "@/styles/components/templates/Layout.module.scss"
 import Head from 'next/head'
 import Navbar from '../organisms/Navbar'
+import { useDispatch } from 'react-redux'
+import missionSlice from '@/redux/missions/slice'
 
 interface PROPS {
   children: ReactNode,
@@ -16,6 +18,10 @@ const Layout: VFC<PROPS> = ({
   wholeClass,
   mainClass
 }) => {
+
+  const dispatch = useDispatch()
+  const onClick = () => dispatch(missionSlice.actions.nextStep('main'))
+
   return (
     <div className={`${ wholeClass } ${ styles.layout }`}>
       <Head>
@@ -24,7 +30,12 @@ const Layout: VFC<PROPS> = ({
       <header className={ styles.header }>
         <Navbar/>
       </header>
-      <main className={`${ mainClass } ${ styles.main }`}>{ children }</main>
+      <main 
+        className={`${ mainClass } ${ styles.main }`}
+        onClick={ onClick }
+      >
+        { children }
+      </main>
       <footer>
       </footer>
     </div>
