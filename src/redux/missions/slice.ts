@@ -5,13 +5,15 @@ import MissionFunc01 from '@/scenarios/MissionFunc01';
 
 export interface MissionState {
   isEmphasize: Object,
+  initialText: string,
   step: number,
   scenario: Array<Chat>
 };
 
 export const initialState: MissionState = {
   isEmphasize: {},
-  step: 0,
+  initialText: '',
+  step: 2,
   scenario: Missin01
 };
 
@@ -29,7 +31,7 @@ const missionSlice = createSlice({
     }),
     nextStep: (state, action: PayloadAction<string>) => {
       if(MissionFunc01[state.step].condition !== action.payload) return
-      MissionFunc01[state.step].step(state)
+      MissionFunc01[state.step].stepUpFunction(state)
     }
   },
 });
