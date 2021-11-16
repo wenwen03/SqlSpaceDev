@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { MissionState } from './slice';
 
-export const useMissionStateState = () => {
+export const useMissionState = () => {
   return useSelector((state: { mission: MissionState }) => state);
 };

@@ -1,5 +1,5 @@
 import Layout from '@/components/templates/Layout'
-import React, { useEffect, useState, VFC } from 'react'
+import React, { useState, VFC } from 'react'
 import styles from '@/styles/pages/mission.module.scss'
 import Ground from '@/components/molucules/Ground'
 import BottomMenu from '@/components/organisms/BottomMenu'
@@ -10,10 +10,7 @@ import Reward from '@/types/Reward'
 import SQLRunner from '@/components/organisms/SQLRunner'
 import ResidenceEntity from '@/types/ResidenceEntity'
 import ResidenceRow from '@/types/ResidenceRow'
-import genScenario from '@/scenarios/Mission01'
-import { useDispatch } from 'react-redux';
-import counterSlice from '@/redux/missions/slice'
-import { useCounterState } from '@/redux/missions/selectors'  
+import { useMissionState } from '@/redux/missions/selectors'
 
 const REWARDS: Array<Reward> = [
   { icon: <FastfoodIcon/>, amount: 1000 }
@@ -33,16 +30,6 @@ const RESIDENCE_LIST: Array<ResidenceEntity> = [
 
 const mission: VFC = () => {
 
-  const dispatch = useDispatch()
-  const state = useCounterState().counter
-  const ducks = () => {
-    dispatch(counterSlice.actions.emphasizeBtn())
-  }
-
-  useEffect(() => {
-    ducks()
-  }, [])
-
   // SQLモードステート定義
   const [sqlFlg, setSqlFlg] = useState(false);
   const startSQL = () => setSqlFlg(true)
@@ -56,7 +43,7 @@ const mission: VFC = () => {
     updateResidenceList([ ...residenceList ])
   }
 
-  const Scenario = genScenario()
+  const state = useMissionState().mission
 
   return (
     <Layout
@@ -67,8 +54,6 @@ const mission: VFC = () => {
       {
         residenceList.map(( residence, index ) => 
           <InterractiveResidence 
-            isEmphasize={ Scenario.isEmphasize }
-            stepFunc={ Scenario.genNextStep }
             key={ index }
             startSQL={ startSQL }
             endSQL={ endSQL }
@@ -79,9 +64,9 @@ const mission: VFC = () => {
       { !sqlFlg && <BottomMenu /> }
       { sqlFlg && <SQLRunner rewards={ REWARDS } sqlAPI={ sqlAPI } /> }
       <ChatBox 
-        step={ Scenario.step }
+        step={ state.step }
         sqlFlg={ sqlFlg }
-        chatList={ Scenario.chatList }
+        chatList={ state.scenario }
       />
     </Layout>
   )
