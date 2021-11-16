@@ -1,15 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Missin01 from '@/scenarios/Mission01'
 import Chat from '@/types/Chat';
+import MissionFunc01 from '@/scenarios/MissionFunc01';
 
 export interface MissionState {
-  isEmphasizeBtn: boolean,
+  isEmphasize: Object,
   step: number,
   scenario: Array<Chat>
 };
 
 export const initialState: MissionState = {
-  isEmphasizeBtn: false,
+  isEmphasize: {},
   step: 0,
   scenario: Missin01
 };
@@ -27,9 +28,8 @@ const missionSlice = createSlice({
       isEmphasizeBtn: action.payload
     }),
     nextStep: (state, action: PayloadAction<string>) => {
-      if(state.scenario[state.step].condition !== action.payload) return
-      state.step += 1
-      state.isEmphasizeBtn = true
+      if(MissionFunc01[state.step].condition !== action.payload) return
+      MissionFunc01[state.step].step(state)
     }
   },
 });
