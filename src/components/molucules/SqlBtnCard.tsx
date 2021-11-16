@@ -31,6 +31,7 @@ const SqlBtnCard: VFC<PROPS> = ({
         </Button>
       </div>
       <Button 
+        name='runBtn'
         onClick={ run }
         color='secondary' 
         startIcon={ <DirectionsRunIcon/> }
