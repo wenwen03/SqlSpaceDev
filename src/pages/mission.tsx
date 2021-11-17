@@ -37,19 +37,23 @@ const mission: VFC = () => {
   const startSQL = () => setSqlFlg(true)
   const endSQL = () => setSqlFlg(false)
 
+  // Mission完了モーダルステート定義
+  const [showCompleteModal, setShowCompleteModa] = useState(false)
+  const closeCompleteModal = () => setShowCompleteModa(false)
+
+  // 結果モーダルステート定義
+  const [showResultModal, setShowResultModal] = useState(false)
+  const closeResultModal = () => setShowResultModal(false)
+  const openResultModal = () => setShowResultModal(true)
+
   // Residenceステート定義
   const [residenceList, updateResidenceList] = useState(RESIDENCE_LIST)
   const sqlAPI = function(): void {
     const record: ResidenceRow = { id: 103, name: 'tanaka', 'moved_at': '2021/11/13'}
     residenceList[0].rows.push(record)
     updateResidenceList([ ...residenceList ])
+    openResultModal()
   }
-
-  const [showCompleteModal, setShowCompleteModa] = useState(false)
-  const closeCompleteModal = () => setShowCompleteModa(false)
-
-  const [showResultModal, setShowResultModal] = useState(true)
-  const closeResultModal = () => setShowResultModal(false)
 
   const state = useMissionState().mission
 
