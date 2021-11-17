@@ -24,21 +24,20 @@ const ChatBox: VFC<PROPS> = ({
   }, [ chatList.slice(0,step) ])
 
   return (
-    <TransitionGroup
-      component='div'
-      className={ `${sqlFlg ? styles['sql-mode'] : '' }  ${ styles['chat-box'] }` }
-    >
-      { chatList.slice(0, step).map(( bubble, index ) =>
-        <FadeInOut key={ index }>
-          <Bubble
-            className={ styles.bubble }
-            speaker={ bubble.speaker }
-            comment={ bubble.comment }
-          />
-        </FadeInOut>
-      )}
+    <div className={ `${sqlFlg ? styles['sql-mode'] : '' }  ${ styles['chat-box'] }` }>
+      <TransitionGroup component='div' >
+        { chatList.slice(0, step).map(( bubble, index ) =>
+          <FadeInOut key={ index }>
+            <Bubble
+              className={ styles.bubble }
+              speaker={ bubble.speaker }
+              comment={ bubble.comment }
+            />
+          </FadeInOut>
+        )}
+      </TransitionGroup>
       <div ref={ bottomRef } />
-    </TransitionGroup>
+    </div>
   )
 }
 
