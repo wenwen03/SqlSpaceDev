@@ -14,7 +14,7 @@ export interface MissionState {
 export const initialState: MissionState = {
   isEmphasize: {},
   initialText: '',
-  step: 2,
+  step: 1,
   goal: '画面をクリックするとストリーが進みます',
   scenario: Missin01
 };

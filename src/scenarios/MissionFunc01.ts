@@ -12,7 +12,13 @@ const defaultObject: StepUpInfo = {
 
 const stepUpInfo: Array<StepUpInfo> = [
   { condition: '', stepUpFunction() {} },
-  { condition: '', stepUpFunction() {} },
+  { 
+    condition: 'main', 
+    stepUpFunction(state: MissionState) {
+      state.step += 1
+      state.isEmphasize = { residence: true }
+    } 
+  },
   {
     condition: 'residence',
     stepUpFunction(state: MissionState){
@@ -24,12 +30,29 @@ const stepUpInfo: Array<StepUpInfo> = [
     condition: 'titleWindowBtn',
     stepUpFunction(state: MissionState){
       state.step += 1
-      state.isEmphasize = { titleWindowBtn : true }
     },
   },
-  defaultObject,
-  defaultObject,
-  defaultObject,
+  {
+    condition: 'main',
+    stepUpFunction(state: MissionState){
+      state.step += 1
+      state.isEmphasize = { residenceWindow: true }
+    },
+  },
+  {
+    condition: 'main',
+    stepUpFunction(state: MissionState){
+      state.step += 1
+      state.isEmphasize = { monitor: true }
+    },
+  },
+  {
+    condition: 'main',
+    stepUpFunction(state: MissionState){
+      state.step += 1
+      state.isEmphasize = {}
+    },
+  },
   { 
     condition: 'main', 
     stepUpFunction(state: MissionState) { 

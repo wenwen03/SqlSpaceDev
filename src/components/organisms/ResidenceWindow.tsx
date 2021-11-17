@@ -3,7 +3,9 @@ import TableWindow from '../molucules/TableWindow'
 import TitleWindow from '../molucules/TitleWindow'
 import WindowFrame from '../molucules/WindowFrame'
 import styles from '@/styles/components/organisms/ResidenceWindow.module.scss'
+import animations from '@/styles/components/animations/Emphasize.module.scss';
 import ResidenceEntity from '@/types/ResidenceEntity'
+import { useMissionState } from '@/redux/missions/selectors'
 
 interface PROPS {
   clickaway: () => void,
@@ -19,6 +21,8 @@ const ResidenceWindow: VFC<PROPS> = ({
   entity
 }) => {
 
+  const state = useMissionState().mission
+
   // テーブル表示切替
   const [tableFlg, setTableFlg] = useState(false)
   const toTable = function(): void {
@@ -32,7 +36,7 @@ const ResidenceWindow: VFC<PROPS> = ({
 
   return (
       <WindowFrame 
-        className={ styles['residence-window'] } 
+        className={`${ styles['residence-window'] } ${ state.isEmphasize['residenceWindow'] ? animations.emphasize : ''}`} 
         clickaway={ clickaway }
       >
         { !tableFlg ? 
