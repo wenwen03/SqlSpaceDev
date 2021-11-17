@@ -3,16 +3,13 @@ import Residence from '../molucules/Residence'
 import ResidenceWindow from './ResidenceWindow'
 import styles from '@/styles/components/organisms/InteractiveResidence.module.scss'
 import ResidenceEntity from '@/types/ResidenceEntity'
+import { useDispatch } from 'react-redux'
 
 interface PROPS {
-  startSQL: () => void
-  endSQL: () => void,
   entity: ResidenceEntity
 }
 
 const InterractiveResidence: VFC<PROPS> = ({
-  startSQL,
-  endSQL,
   entity
 }) => { 
 
@@ -30,8 +27,6 @@ const InterractiveResidence: VFC<PROPS> = ({
       { 
         focusFlg && <ResidenceWindow
           entity={ entity }
-          startSQL={ startSQL } 
-          endSQL={ endSQL } 
           clickaway={ clickaway } 
         />
       }
