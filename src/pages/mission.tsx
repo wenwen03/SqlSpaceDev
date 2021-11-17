@@ -28,10 +28,6 @@ const mission: VFC = () => {
   const startSQL = () => setSqlFlg(true)
   const endSQL = () => setSqlFlg(false)
 
-  // Mission完了モーダルステート定義
-  const [showCompleteModal, setShowCompleteModa] = useState(false)
-  const closeCompleteModal = () => setShowCompleteModa(false)
-
   // 結果モーダルステート定義
   const [showResultModal, setShowResultModal] = useState(false)
   const closeResultModal = () => setShowResultModal(false)
@@ -66,7 +62,7 @@ const mission: VFC = () => {
       }
       { !sqlFlg && <BottomMenu /> }
       { sqlFlg && <SQLRunner sqlAPI={ sqlAPI } /> }
-      <CompleteModal isOpen={ showCompleteModal } onClose={ closeCompleteModal }/>
+      <CompleteModal/>
       <RunResultWindow isOpen={showResultModal} onClose={closeResultModal} result=''/>
       <ChatBox 
         step={ state.step }
