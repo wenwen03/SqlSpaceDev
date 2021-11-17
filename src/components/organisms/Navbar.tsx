@@ -15,10 +15,10 @@ const Navbar: VFC = () => {
     <div className={styles.navbar}>
       <Logo/>
       <div className={styles.btnWrapper}>
-        <Link href="/pricing">
+        <Link href="/">
           <a>Pricing</a>
         </Link>
-        <Link href="/about">
+        <Link href="/">
           <a className={styles.link}>About</a>
         </Link>
         <Button onClick={ login }>login</Button>
