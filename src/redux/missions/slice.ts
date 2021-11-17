@@ -9,6 +9,7 @@ export interface MissionState {
   step: number,
   goal: string,
   scenario: Array<Chat>
+  showCompleteModal: boolean
 };
 
 export const initialState: MissionState = {
@@ -16,7 +17,8 @@ export const initialState: MissionState = {
   initialText: '',
   step: 1,
   goal: '画面をクリックするとストリーが進みます',
-  scenario: Missin01
+  scenario: Missin01,
+  showCompleteModal: false
 };
 
 const missionSlice = createSlice({
