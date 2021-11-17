@@ -1,10 +1,12 @@
 import Router from 'next/router'
 import React, { ReactNode, VFC } from 'react'
 import Button from '../atoms/Button'
-import H4 from '../atoms/H4'
 import MyImg from '../atoms/MyImg'
 import Modal from '../molucules/Modal'
 import styles from '@/styles/components/organisms/CompleteModal.module.scss'
+import Avatar from '../atoms/Avatar'
+import P from '../atoms/P'
+import H5 from '../atoms/H5'
 
 interface PROPS {
   children?: ReactNode,
@@ -25,17 +27,21 @@ const CompleteModal: VFC<PROPS> = ({
       isOpen={ isOpen }
       onClose={ onClose }
     >
-      <H4>Congratulations!!</H4>
       <MyImg 
         alt='congratulations image'
         width={400}
         height={250}
-        src='/img/character/complete.png' 
+        src='/videos/complete.gif' 
         className={ styles['main-contents'] }
       />
+      <div className={ styles['user-name'] }>
+        <Avatar alt='user icon' src='/img/charactor/human.png'/>
+        <H5>Test User Lv.1 → Lv.2</H5>
+      </div>
+      <P className={ styles.rewards }>EXP +500</P>
       <div className={ styles['btn-wrapper'] }>
-        <Button onClick={ toHome }>home</Button>
-        <Button onClick={ next }>next</Button>
+        <Button onClick={ toHome }>back to the home</Button>
+        <Button onClick={ next }>next mission</Button>
       </div>
     </Modal>
   )

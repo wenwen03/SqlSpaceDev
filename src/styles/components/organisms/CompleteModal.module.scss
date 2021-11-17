@@ -1,4 +1,6 @@
 @import '../../mixins/margin.scss';
+@import '../../mixins/padding.scss';
+@import '../../mixins/color.scss';
 
 .btn-wrapper {
   width: 100%;
@@ -8,4 +10,16 @@
 
 .main-contents {
   margin: $margin-mvw
+}
+
+.user-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+
+.rewards {
+  color: $color-yellow;
+  padding: $padding-mvw;
 }
