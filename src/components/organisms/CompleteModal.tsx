@@ -37,7 +37,7 @@ const CompleteModal: VFC<PROPS> = () => {
       </div>
       <P className={ styles.rewards }>EXP +500</P>
       <div className={ styles['btn-wrapper'] }>
-        <Button onClick={ toHome }>back to the home</Button>
+        <Button onClick={ toHome }>back home</Button>
         <Button onClick={ next }>next mission</Button>
       </div>
     </Modal>
