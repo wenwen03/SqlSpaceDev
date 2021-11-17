@@ -5,30 +5,25 @@ import Chat from '@/types/Chat'
 import { TransitionGroup } from 'react-transition-group'
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import FadeInOut from '../animations/FadeInOut'
+import { useMissionState } from '@/redux/missions/selectors'
+import Mission01 from '@/scenarios/Mission01'
 
-interface PROPS {
-  sqlFlg: boolean,
-  chatList: Array<Chat>,
-  step: number
-}
 
-const ChatBox: VFC<PROPS> = ({
-  sqlFlg,
-  chatList,
-  step
-}) => {
+const ChatBox: VFC = () => {
+
+  const state = useMissionState().mission
 
   // ChatList更新時に一番下までスクロールする
   const bottomRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     bottomRef.current?.scrollIntoView()
-  }, [ chatList.slice(0,step) ])
+  }, [ Mission01.slice(0, state.step) ])
 
   return (
-    <div className={ `${sqlFlg ? styles['sql-mode'] : '' }  ${ styles['chat-box'] }` }>
+    <div className={ `${ state.isSqlMode ? styles['sql-mode'] : '' }  ${ styles['chat-box'] }` }>
       <div className={ styles.info }><PlayCircleFilledWhiteIcon/>画面上をクリックして話を進める</div>
       <TransitionGroup component='div' >
-        { chatList.slice(0, step).map(( bubble, index ) =>
+        { Mission01.slice(0, state.step).map(( bubble, index ) =>
           <FadeInOut key={ index }>
             <Bubble
               className={ styles.bubble }
