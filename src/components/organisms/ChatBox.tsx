@@ -1,4 +1,4 @@
-import React, { useEffect, useState, VFC } from 'react'
+import React, { useLayoutEffect, useRef, VFC } from 'react'
 import Bubble from '../molucules/Bubble'
 import styles from '@/styles/components/organisms/ChatBox.module.scss'
 import Chat from '@/types/Chat'
@@ -17,6 +17,12 @@ const ChatBox: VFC<PROPS> = ({
   step
 }) => {
 
+  // ChatList更新時に一番下までスクロールする
+  const bottomRef = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    bottomRef.current?.scrollIntoView()
+  }, [ chatList.slice(0,step) ])
+
   return (
     <TransitionGroup
       component='div'
@@ -31,6 +37,7 @@ const ChatBox: VFC<PROPS> = ({
           />
         </FadeInOut>
       )}
+      <div ref={ bottomRef } />
     </TransitionGroup>
   )
 }
