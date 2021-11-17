@@ -3,6 +3,7 @@ import Bubble from '../molucules/Bubble'
 import styles from '@/styles/components/organisms/ChatBox.module.scss'
 import Chat from '@/types/Chat'
 import { TransitionGroup } from 'react-transition-group'
+import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import FadeInOut from '../animations/FadeInOut'
 
 interface PROPS {
@@ -25,6 +26,7 @@ const ChatBox: VFC<PROPS> = ({
 
   return (
     <div className={ `${sqlFlg ? styles['sql-mode'] : '' }  ${ styles['chat-box'] }` }>
+      <div className={ styles.info }><PlayCircleFilledWhiteIcon/>画面上をクリックして話を進める</div>
       <TransitionGroup component='div' >
         { chatList.slice(0, step).map(( bubble, index ) =>
           <FadeInOut key={ index }>
