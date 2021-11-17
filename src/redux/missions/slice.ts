@@ -7,6 +7,7 @@ export interface MissionState {
   isEmphasize: Object,
   initialText: string,
   step: number,
+  goal: string,
   scenario: Array<Chat>
 };
 
@@ -14,6 +15,7 @@ export const initialState: MissionState = {
   isEmphasize: {},
   initialText: '',
   step: 2,
+  goal: '画面をクリックするとストリーが進みます',
   scenario: Missin01
 };
 
