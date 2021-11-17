@@ -42,7 +42,7 @@ const mission: VFC = () => {
     let record: ResidenceRow;
     switch(residenceList[0].rows.length) {
       case 0: record = { 'room_no': 101, name: 'dog', 'moved_at': today }; break;
-      case 1: record = { 'room_no': 102, name: 'test_user', 'moved_at': today }; break;
+      case 1: record = { 'room_no': 102, name: 'test-user', 'moved_at': today }; break;
       case 2: record = { 'room_no': 103, name: 'zako', 'moved_at': today }; break;
     }
 
@@ -72,7 +72,7 @@ const mission: VFC = () => {
       { !sqlFlg && <BottomMenu /> }
       { sqlFlg && <SQLRunner sqlAPI={ sqlAPI } /> }
       <CompleteModal/>
-      <RunResultWindow isOpen={showResultModal} onClose={closeResultModal} result=''/>
+      <RunResultWindow isOpen={showResultModal} onClose={closeResultModal} result='Query OK, 1 row affected (0.00 sec)'/>
       <ChatBox 
         step={ state.step }
         sqlFlg={ sqlFlg }
