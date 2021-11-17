@@ -50,7 +50,7 @@ const stepUpInfo: Array<StepUpInfo> = [
     } 
   },
   { 
-    condition: 'runBtn', 
+    condition: 'runResultModal', 
     stepUpFunction(state: MissionState) {
       state.step += 1
       state.isEmphasize = {}
@@ -58,9 +58,9 @@ const stepUpInfo: Array<StepUpInfo> = [
   },
   defaultObject,
   defaultObject,
-  { condition: 'runBtn', stepUpFunction(state: MissionState) { state.step += 1} },
+  { condition: 'runResultModal', stepUpFunction(state: MissionState) { state.step += 1} },
   defaultObject,
-  { condition: 'runBtn', stepUpFunction(state: MissionState) { state.step += 1} },
+  { condition: 'runResultModal', stepUpFunction(state: MissionState) { state.step += 1} },
   { condition: '', stepUpFunction(state: MissionState) { state.step += 1} },
   defaultObject,
   defaultObject,
