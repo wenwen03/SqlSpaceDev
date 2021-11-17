@@ -16,9 +16,9 @@ const chatList: Array<Chat> = [
   {speaker: 'dog', comment: 'あれは今日の日付を意味してるんだよ。\n便利だから覚えておくといいよ。'},
   {speaker: 'dog', comment: 'じゃあ、これで実行してみよう！\n@Runボタンを押してくれる？@'},
   {speaker: 'human', comment: 'あ！部屋が増えました！'},
-  {speaker: 'dog', comment: '簡単でしょ！[username]もやってみよう！\n@room_no: 102@\n@name: test-user@\n@moved_at: [今日の日付]@\nという内容で部屋を追加してみてね！'},
+  {speaker: 'dog', comment: '簡単でしょ！[username]の部屋も追加してみよう！\n@部屋番号: 102@\n@名前: test-user@\n@引越日: [今日の日付]@\nという内容で部屋を追加してみてね！'},
   {speaker: 'human', comment: 'おぉ、すごいです！さすが期待の新人ですね！'},
-  {speaker: 'human', comment: '最後に僕の部屋も追加して欲しいです！\n@room_no: 103@\n@name: zako@\n@moved_at: [今日の日付]@\nという内容で部屋を追加して下さい！'},
+  {speaker: 'human', comment: '最後に僕の部屋も追加して欲しいです！\n@部屋番号: 103@\n@名前: zako@\n@引越日: [今日の日付]@\nという内容で部屋を追加して下さい！'},
   {speaker: 'dog', comment: '完璧だねー！もう部屋は好きなように作れるね！お疲れ様！'},
 ]
 
