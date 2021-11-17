@@ -3,7 +3,6 @@ import Residence from '../molucules/Residence'
 import ResidenceWindow from './ResidenceWindow'
 import styles from '@/styles/components/organisms/InteractiveResidence.module.scss'
 import ResidenceEntity from '@/types/ResidenceEntity'
-import { useDispatch } from 'react-redux'
 
 interface PROPS {
   entity: ResidenceEntity
