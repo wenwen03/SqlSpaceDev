@@ -85,17 +85,14 @@ const stepUpInfo: Array<StepUpInfo> = [
   { condition: 'runResultModal', stepUpFunction(state: MissionState) { state.step += 1} },
   defaultObject,
   { condition: 'runResultModal', stepUpFunction(state: MissionState) { state.step += 1} },
+  { 
+    condition: 'main',
+    stepUpFunction(state: MissionState) {
+      state.step += 1
+      state.showCompleteModal = true
+    }
+  },
   { condition: '', stepUpFunction(state: MissionState) { state.step += 1} },
-  defaultObject,
-  defaultObject,
-  defaultObject,
-  defaultObject,
-  defaultObject,
-  defaultObject,
-  defaultObject,
-  defaultObject,
-  defaultObject,
-  defaultObject,
 ]
 
 export default stepUpInfo;
