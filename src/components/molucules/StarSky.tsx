@@ -1,12 +1,12 @@
-import React, { VFC } from 'react'
+import React, { memo, VFC } from 'react'
 import Star from '../atoms/Star'
 import styles from '@/styles/components/molucules/StarSky.module.scss'
 
-const StarSky: VFC = () => {
+const StarSky: VFC = memo(() => {
 
   const list: Array<number> = [...Array(100)]
   const stars = list.map(() => { 
-    const radius = Math.random() * 7
+    const radius = Math.random() * 5
     return {
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
@@ -30,6 +30,6 @@ const StarSky: VFC = () => {
       }
     </div>
   )
-}
+})
 
 export default StarSky

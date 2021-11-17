@@ -11,6 +11,7 @@ import ResidenceRow from '@/types/ResidenceRow'
 import { useMissionState } from '@/redux/missions/selectors'
 import CompleteModal from '@/components/organisms/CompleteModal'
 import RunResultWindow from '@/components/organisms/RunResultWindow'
+import StarSky from '@/components/molucules/StarSky'
 
 // residenceの情報（Mock）（apiで取得する）
 const RESIDENCE_LIST: Array<ResidenceEntity> = [
@@ -58,6 +59,7 @@ const mission: VFC = () => {
       title={'Insert文の基本 | SQL Space Dev'}
       wholeClass={ styles.layout }
     >
+      <StarSky/>
       <Ground />
       {
         residenceList.map(( residence, index ) => 
