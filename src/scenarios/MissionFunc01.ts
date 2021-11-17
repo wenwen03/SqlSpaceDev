@@ -54,6 +54,7 @@ const stepUpInfo: Array<StepUpInfo> = [
     stepUpFunction(state: MissionState) {
       state.step += 1
       state.isEmphasize = {}
+      state.initialText = ''
     } 
   },
   defaultObject,
