@@ -80,8 +80,13 @@ const stepUpInfo: Array<StepUpInfo> = [
       state.initialText = ''
     } 
   },
-  defaultObject,
-  defaultObject,
+  { 
+    condition: 'main', 
+    stepUpFunction(state: MissionState) {
+      state.step += 1
+      state.goal = 'INSERT INTO 建物名\n（カラム名1, カラム名2, ...）\nVALUES（値1, 値2,  ...）;'
+    } 
+  },
   { condition: 'runResultModal', stepUpFunction(state: MissionState) { state.step += 1} },
   defaultObject,
   { condition: 'runResultModal', stepUpFunction(state: MissionState) { state.step += 1} },
