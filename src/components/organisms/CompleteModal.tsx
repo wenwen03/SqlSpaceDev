@@ -35,8 +35,11 @@ const CompleteModal: VFC<PROPS> = () => {
         <Avatar alt='user icon' src='/img/character/human.png'/>
         <H5>Test User Lv.1 → Lv.2</H5>
       </div>
-      <a href='https://twitter.com/wen_frt' className={ styles.link}>
+      <a href='https://twitter.com/wen_frt' className={ styles.link} target='_blank' rel='noopener noreferrer'>
         開発進捗はTwitterで
+      </a><br/>
+      <a href='https://forms.gle/vBjUDpfNB4xFku5q8' className={ styles.link } target='_blank' rel='noopener noreferrer'>
+        お時間あれば、アンケートお願いします。
       </a>
       <P className={ styles.rewards }>EXP +500</P>
       <div className={ styles['btn-wrapper'] }>
