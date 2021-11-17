@@ -1,5 +1,5 @@
 export default interface ResidenceRow {
-  id: number,
+  'room_no': number,
   name: string,
   'moved_at': string
 }

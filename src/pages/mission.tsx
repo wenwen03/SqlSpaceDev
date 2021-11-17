@@ -15,8 +15,8 @@ import RunResultWindow from '@/components/organisms/RunResultWindow'
 // residenceの情報（Mock）（apiで取得する）
 const RESIDENCE_LIST: Array<ResidenceEntity> = [
   {
-    name: 'haitsu_tanaka',
-    columns: ['id', 'name', 'moved_at'],
+    name: 'house01',
+    columns: ['room_no', 'name', 'moved_at'],
     rows:  []
   }
 ]
@@ -36,7 +36,16 @@ const mission: VFC = () => {
   // Residenceステート定義
   const [residenceList, updateResidenceList] = useState(RESIDENCE_LIST)
   const sqlAPI = function(): void {
-    const record: ResidenceRow = { id: 103, name: 'tanaka', 'moved_at': '2021/11/13'}
+
+    const today = new Date().toLocaleDateString()
+
+    let record: ResidenceRow;
+    switch(residenceList[0].rows.length) {
+      case 0: record = { 'room_no': 101, name: 'dog', 'moved_at': today }; break;
+      case 1: record = { 'room_no': 102, name: 'test_user', 'moved_at': today }; break;
+      case 2: record = { 'room_no': 103, name: 'zako', 'moved_at': today }; break;
+    }
+
     residenceList[0].rows.push(record)
     updateResidenceList([ ...residenceList ])
     openResultModal()
