@@ -22,7 +22,7 @@ const RewardCard: VFC<PROPS> = ({
         <LightbulbIcon/>
         <H6 className={ styles.title }>ヒント</H6>
     </div>
-    <P>{ state.goal }</P>
+    <P className={ styles.goal }>{ state.goal }</P>
   </Card>
 )}
 
