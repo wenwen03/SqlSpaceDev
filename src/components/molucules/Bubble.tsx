@@ -21,7 +21,7 @@ const Bubble: VFC<PROPS> = ({
       src={ speaker === 'dog'? '/img/dog-icon.jpg' : '/img/human-icon.png' }
       className={ styles.avatar }
     />
-    <P>{ 
+    <P className={ styles.text }>{ 
       comment.split('@').map(( str, index ) => (
         index % 2 === 0 ? str : <span key={ index } className={ styles.orange }>{ str }</span>
       ))
