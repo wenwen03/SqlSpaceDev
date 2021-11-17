@@ -7,7 +7,7 @@ import { Box } from '@mui/system';
 interface PROPS {
   children: ReactNode,
   isOpen: boolean,
-  onClose: () => void
+  onClose?: () => void
 }
 
 const Modal: VFC<PROPS> = ({
