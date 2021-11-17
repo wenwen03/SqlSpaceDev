@@ -23,3 +23,13 @@
   color: $color-yellow;
   padding: $padding-mvw;
 }
+
+.link {
+  color:skyblue;
+  cursor: pointer;
+  border-bottom: solid 1px skyblue;
+  &:hover {
+    color: white;
+    border-bottom: solid 1px white;
+  }
+}
