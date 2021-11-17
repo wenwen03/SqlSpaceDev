@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import styles from '@/styles/components/molucules/TableWindow.module.scss'
 import Card from '../atoms/Card';
 import Button from '../atoms/Button';
+import P from '../atoms/P';
 
 const StyledTableRow = styled(TableRow)(() => ({
   '&:nth-of-type(odd)': {
@@ -73,6 +74,7 @@ const TableWindow: VFC<PROPS> = ({
           ))}
         </TableBody>
       </Table>
+        { rows.length === 0 && <P className={ styles['nothing-text'] }>データがありません</P>}
     </Card>
   </>
 );
