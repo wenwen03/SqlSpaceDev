@@ -18,10 +18,14 @@ const Bubble: VFC<PROPS> = ({
   <Paper className={`${ styles.bubble } ${ className }`} >
     <Avatar
       alt='charactor icon'
-      src={ speaker === 'dog'? '/img/dog-icon.jpg' : '/img/human-icon.png'}
+      src={ speaker === 'dog'? '/img/dog-icon.jpg' : '/img/human-icon.png' }
       className={ styles.avatar }
     />
-    <P>{ comment}</P>
+    <P>{ 
+      comment.split('@').map(( str, index ) => (
+        index % 2 === 0 ? str : <span key={ index } className={ styles.orange }>{ str }</span>
+      ))
+    }</P>
   </Paper>
 )
 
