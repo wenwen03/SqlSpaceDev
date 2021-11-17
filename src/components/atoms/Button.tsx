@@ -1,6 +1,6 @@
 import React, { ReactNode, VFC } from 'react';
 import { Button as MUIBtn } from '@mui/material';
-import styles from '@/styles/components/atoms/Button.module.scss'
+import styles from '@/styles/components/animations/Emphasize.module.scss';
 import { useMissionState } from '@/redux/missions/selectors';
 import { useDispatch } from 'react-redux';
 import missionSlice from '@/redux/missions/slice';
