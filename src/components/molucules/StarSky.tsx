@@ -2,7 +2,7 @@ import React, { memo, VFC } from 'react'
 import Star from '../atoms/Star'
 import styles from '@/styles/components/molucules/StarSky.module.scss'
 
-const StarSky: VFC = memo(() => {
+const StarSky: VFC = () => {
 
   const list: Array<number> = [...Array(100)]
   const stars = list.map(() => { 
@@ -30,6 +30,6 @@ const StarSky: VFC = memo(() => {
       }
     </div>
   )
-})
+}
 
-export default StarSky
+export default memo(StarSky)
