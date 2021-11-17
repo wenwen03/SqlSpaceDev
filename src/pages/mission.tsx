@@ -5,8 +5,6 @@ import Ground from '@/components/molucules/Ground'
 import BottomMenu from '@/components/organisms/BottomMenu'
 import InterractiveResidence from '@/components/organisms/InterractiveResidence'
 import ChatBox from '@/components/organisms/ChatBox'
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import Reward from '@/types/Reward'
 import SQLRunner from '@/components/organisms/SQLRunner'
 import ResidenceEntity from '@/types/ResidenceEntity'
 import ResidenceRow from '@/types/ResidenceRow'
@@ -14,19 +12,12 @@ import { useMissionState } from '@/redux/missions/selectors'
 import CompleteModal from '@/components/organisms/CompleteModal'
 import RunResultWindow from '@/components/organisms/RunResultWindow'
 
-const REWARDS: Array<Reward> = [
-  { icon: <FastfoodIcon/>, amount: 1000 }
-]
-
 // residenceの情報（Mock）（apiで取得する）
 const RESIDENCE_LIST: Array<ResidenceEntity> = [
   {
     name: 'haitsu_tanaka',
     columns: ['id', 'name', 'moved_at'],
-    rows:  [
-      { id: 101, name: 'sato', 'moved_at': '2021/11/11'},
-      { id: 102, name: 'suzuki', 'moved_at': '2021/11/12'}
-    ]
+    rows:  []
   }
 ]
 
@@ -74,7 +65,7 @@ const mission: VFC = () => {
         )
       }
       { !sqlFlg && <BottomMenu /> }
-      { sqlFlg && <SQLRunner rewards={ REWARDS } sqlAPI={ sqlAPI } /> }
+      { sqlFlg && <SQLRunner sqlAPI={ sqlAPI } /> }
       <CompleteModal isOpen={ showCompleteModal } onClose={ closeCompleteModal }/>
       <RunResultWindow isOpen={showResultModal} onClose={closeResultModal} result=''/>
       <ChatBox 
