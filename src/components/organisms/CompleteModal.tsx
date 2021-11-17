@@ -32,7 +32,7 @@ const CompleteModal: VFC<PROPS> = () => {
         className={ styles['main-contents'] }
       />
       <div className={ styles['user-name'] }>
-        <Avatar alt='user icon' src='/img/charactor/human.png'/>
+        <Avatar alt='user icon' src='/img/character/human.png'/>
         <H5>Test User Lv.1 → Lv.2</H5>
       </div>
       <P className={ styles.rewards }>EXP +500</P>
