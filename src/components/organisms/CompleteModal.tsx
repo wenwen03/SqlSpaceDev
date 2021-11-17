@@ -7,25 +7,22 @@ import styles from '@/styles/components/organisms/CompleteModal.module.scss'
 import Avatar from '../atoms/Avatar'
 import P from '../atoms/P'
 import H5 from '../atoms/H5'
+import { useMissionState } from '@/redux/missions/selectors'
 
 interface PROPS {
   children?: ReactNode,
-  isOpen: boolean,
-  onClose: () => void
 }
 
-const CompleteModal: VFC<PROPS> = ({
-  isOpen,
-  onClose
-}) => {
+const CompleteModal: VFC<PROPS> = () => {
+
+  const state = useMissionState().mission
 
   const toHome = () => Router.push('/home')
   const next = () => Router.push('/mission2')
 
   return (
     <Modal
-      isOpen={ isOpen }
-      onClose={ onClose }
+      isOpen={ state.showCompleteModal }
     >
       <MyImg 
         alt='congratulations image'
