@@ -18,7 +18,7 @@ const CompleteModal: VFC<PROPS> = () => {
   const state = useMissionState().mission
 
   const toHome = () => Router.push('/home')
-  const next = () => Router.push('/mission2')
+  const next = () => alert('クリックしてくれてありがとう！でもまだ実装してないです。ごめんなさい。しばしお待ちを。')
 
   return (
     <Modal
@@ -35,6 +35,9 @@ const CompleteModal: VFC<PROPS> = () => {
         <Avatar alt='user icon' src='/img/character/human.png'/>
         <H5>Test User Lv.1 → Lv.2</H5>
       </div>
+      <a href='https://twitter.com/wen_frt' className={ styles.link}>
+        開発進捗はTwitterで
+      </a>
       <P className={ styles.rewards }>EXP +500</P>
       <div className={ styles['btn-wrapper'] }>
         <Button onClick={ toHome }>back home</Button>
