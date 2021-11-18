@@ -32,7 +32,7 @@ const SQLRunner: VFC<PROPS> = ({
     }
 
     dispatch(missionSlice.actions.pushResidenceList(record))
-    setShowResultModal(false)
+    setShowResultModal(true)
   }
 
 
