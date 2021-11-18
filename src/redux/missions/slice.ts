@@ -1,19 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import Chat from '@/types/Serif';
 import ResidenceEntity from '@/types/ResidenceEntity';
 import ResidenceRow from '@/types/ResidenceRow';
 import InsertScenario from '@/scenarios/InsertScenario';
 import ScenarioStep from '@/types/ScenarioStep';
 
 export interface MissionState {
-  isEmphasize: Object,
-  initialText: string,
+  scenario: Array<ScenarioStep>,
   step: number,
   goal: string,
-  scenario: Array<ScenarioStep>
+  initialText: string,
+  isEmphasize: Object,
+  isSqlMode: boolean,
   showCompleteModal: boolean,
   showResultModal: boolean,
-  isSqlMode: boolean,
   residenceList: Array<ResidenceEntity>
 };
 
@@ -39,14 +38,9 @@ const missionSlice = createSlice({
   name: 'mission',
   initialState,
   reducers: {
-    emphasizeBtn: (state) => ({
-      ...state,
-      isEmphasizeBtn: true
-    }),
-    unemphasizeBtn: (state, action: PayloadAction<boolean>) => ({
-      ...state,
-      isEmphasizeBtn: action.payload
-    }),
+    setInitialState: (state, action) => {
+      state.scenario = action.payload
+    },
     nextStep: (state, action: PayloadAction<string>) => {
       if(InsertScenario[state.step].condition !== action.payload) return
       InsertScenario[state.step].action(state)
