@@ -1,17 +1,15 @@
 import Mission from '@/components/templates/Mission'
 import React, { VFC } from 'react'
-import styles from '@/styles/pages/mission.module.scss'
-import Ground from '@/components/molucules/Ground'
+import styles from '@/styles/pages/insert.module.scss'
 import BottomMenu from '@/components/organisms/BottomMenu'
 import ChatBox from '@/components/organisms/ChatBox'
 import SQLRunner from '@/components/organisms/SQLRunner'
 import CompleteModal from '@/components/organisms/CompleteModal'
 import RunResultWindow from '@/components/organisms/RunResultWindow'
-import StarSky from '@/components/molucules/StarSky'
 import ResidenceList from '@/components/organisms/ResidenceList'
 
 
-const mission: VFC = () => {
+const insert: VFC = () => {
 
   return (
     <Mission
@@ -28,4 +26,4 @@ const mission: VFC = () => {
   )
 }
 
-export default mission
+export default insert
