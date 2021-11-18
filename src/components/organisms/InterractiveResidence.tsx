@@ -5,11 +5,13 @@ import styles from '@/styles/components/organisms/InteractiveResidence.module.sc
 import ResidenceEntity from '@/types/ResidenceEntity'
 
 interface PROPS {
-  entity: ResidenceEntity
+  entity: ResidenceEntity,
+  setIsSqlMode: (boolean) => void
 }
 
 const InterractiveResidence: VFC<PROPS> = ({
-  entity
+  entity,
+  setIsSqlMode
 }) => { 
 
   const [ focusFlg, setFocusFlg ] = useState(false);
@@ -25,6 +27,7 @@ const InterractiveResidence: VFC<PROPS> = ({
       <Residence focusFunc={ focus }/>
       { 
         focusFlg && <ResidenceWindow
+          setIsSqlMode={ setIsSqlMode }
           entity={ entity }
           clickaway={ clickaway } 
         />

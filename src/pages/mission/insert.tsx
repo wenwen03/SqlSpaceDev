@@ -1,5 +1,5 @@
 import Mission from '@/components/templates/Mission'
-import React, { VFC } from 'react'
+import React, { useState, VFC } from 'react'
 import styles from '@/styles/pages/insert.module.scss'
 import BottomMenu from '@/components/organisms/BottomMenu'
 import ChatBox from '@/components/organisms/ChatBox'
@@ -17,15 +17,17 @@ const Insert: VFC = () => {
   const dispatch = useDispatch()
   dispatch(missionSlice.actions.setInitialState(InsertScenario))
 
+  const [isSqlMode, setIsSqlMode] = useState(false)
+
   return (
     <Mission
       title={'Insert文の基本 | SQL Space Dev'}
       wholeClass={ styles.layout }
     >
-      <BottomMenu />
-      <ResidenceList />
-      <SQLRunner />
       <CompleteModal/>
+      { !isSqlMode && <BottomMenu /> }
+      { isSqlMode && <SQLRunner /> }
+      <ResidenceList setIsSqlMode={ setIsSqlMode }/>
       <RunResultWindow result='Query OK, 1 row affected (0.00 sec)'/>
       <ChatBox />
     </Mission>

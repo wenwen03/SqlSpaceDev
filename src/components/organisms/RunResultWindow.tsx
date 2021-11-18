@@ -14,7 +14,7 @@ interface PROPS {
 }
 
 const RunResultWindow: VFC<PROPS> = ({
-  result,
+  result
 }) => {
 
   const dispatch = useDispatch()

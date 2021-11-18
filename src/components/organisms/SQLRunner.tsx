@@ -36,7 +36,7 @@ const SQLRunner: VFC<PROPS> = () => {
   const [ query, setQuery ] = useState('')
   const emitQuery = (e: ChangeEvent<HTMLTextAreaElement>)=> setQuery(e.target.value)
 
-  return state.isSqlMode && (
+  return (
     <div className={ styles['sql-runner'] }>
       <Monitor className={ styles.monitor } emitQuery={ emitQuery }/>
       <RewardCard className={ styles['reward-card'] } />

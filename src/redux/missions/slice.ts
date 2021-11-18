@@ -10,7 +10,6 @@ export interface MissionState {
   goal: string,
   initialText: string,
   isEmphasize: Object,
-  isSqlMode: boolean,
   showCompleteModal: boolean,
   showResultModal: boolean,
   residenceList: Array<ResidenceEntity>
@@ -24,7 +23,6 @@ export const initialState: MissionState = {
   scenario: InsertScenario,
   showCompleteModal: false,
   showResultModal: false,
-  isSqlMode: false,
   residenceList: [
     {
       name: 'house01',
@@ -45,10 +43,6 @@ const missionSlice = createSlice({
       if(InsertScenario[state.step].condition !== action.payload) return
       InsertScenario[state.step].action(state)
     },
-    updateSqlMode: (state, action: PayloadAction<boolean>) => ({
-      ...state,
-      isSqlMode: action.payload
-    }),
     updateShowResultModal: (state, action: PayloadAction<boolean>) => ({
       ...state,
       showResultModal: action.payload
