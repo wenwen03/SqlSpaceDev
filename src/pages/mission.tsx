@@ -1,4 +1,4 @@
-import Layout from '@/components/templates/Layout'
+import Mission from '@/components/templates/Mission'
 import React, { VFC } from 'react'
 import styles from '@/styles/pages/mission.module.scss'
 import Ground from '@/components/molucules/Ground'
@@ -14,19 +14,17 @@ import ResidenceList from '@/components/organisms/ResidenceList'
 const mission: VFC = () => {
 
   return (
-    <Layout
+    <Mission
       title={'Insert文の基本 | SQL Space Dev'}
       wholeClass={ styles.layout }
     >
-      <StarSky/>
-      <Ground />
       <BottomMenu />
       <ResidenceList />
       <SQLRunner />
       <CompleteModal/>
       <RunResultWindow result='Query OK, 1 row affected (0.00 sec)'/>
       <ChatBox />
-    </Layout>
+    </Mission>
   )
 }
 
