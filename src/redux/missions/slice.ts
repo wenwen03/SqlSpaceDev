@@ -12,6 +12,7 @@ export interface MissionState {
   isEmphasize: Object,
   showCompleteModal: boolean,
   residenceList: Array<TableEntity>,
+  spaceWoodList: Array<TableEntity>
 };
 
 export const initialState: MissionState = {
@@ -25,6 +26,13 @@ export const initialState: MissionState = {
     {
       name: 'house01',
       columns: ['room_no', 'name', 'moved_at'],
+      rows:  []
+    }
+  ],
+  spaceWoodList: [
+    {
+      name: 'space_wood01',
+      columns: ['id', 'hardness', 'density'],
       rows:  []
     }
   ]
