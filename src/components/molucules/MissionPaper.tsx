@@ -14,7 +14,7 @@ const MissionPaper: VFC<PROPS> = ({
   purposes,
 }) => {
 
-  const toMission = function(): void { Router.push('/mission') }
+  const toMission = function(): void { Router.push('/mission/insert') }
 
   return (
     <Paper className={ styles.missionPaper }>
