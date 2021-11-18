@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Missin01 from '@/scenarios/Mission01'
 import Chat from '@/types/Chat';
-import MissionFunc01 from '@/scenarios/MissionFunc01';
 import ResidenceEntity from '@/types/ResidenceEntity';
 import ResidenceRow from '@/types/ResidenceRow';
+import InsertScenario from '@/scenarios/InsertScenario';
 
 export interface MissionState {
   isEmphasize: Object,
@@ -48,8 +48,8 @@ const missionSlice = createSlice({
       isEmphasizeBtn: action.payload
     }),
     nextStep: (state, action: PayloadAction<string>) => {
-      if(MissionFunc01[state.step].condition !== action.payload) return
-      MissionFunc01[state.step].stepUpFunction(state)
+      if(InsertScenario[state.step].condition !== action.payload) return
+      InsertScenario[state.step].action(state)
     },
     updateSqlMode: (state, action: PayloadAction<boolean>) => ({
       ...state,
