@@ -22,7 +22,7 @@ const InsertScenario: Array<ScenarioStep> = [
   ),
   createScenarioStep(
     {speaker: 'dog', comment: '住居の右上の表は@この物件の部屋の情報@を示すものだよ。まだ誰も住んでないから情報は空だね。'},
-    state => { state.step += 1; state.isEmphasize = {  residenceWindow: true }; }
+    state => { state.step += 1; state.isEmphasize = { architectureWindow: true }; }
   ),
   createScenarioStep(
     {speaker: 'dog', comment: '画面下のモニターは@SQLを記述するための画面@だよ。'},
