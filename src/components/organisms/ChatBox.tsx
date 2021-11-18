@@ -5,11 +5,18 @@ import { TransitionGroup } from 'react-transition-group'
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import FadeInOut from '../animations/FadeInOut'
 import { useMissionState } from '@/redux/missions/selectors'
+import getTargetScenario from '@/utils/getTargetScenario';
 
-const ChatBox: VFC = () => {
+interface PROPS {
+  isSqlMode: boolean
+}
+
+const ChatBox: VFC<PROPS> = ({
+  isSqlMode
+}) => {
 
   const state = useMissionState().mission
-  const scenario = state.scenario
+  const scenario = getTargetScenario(state.missionName)
 
   // 表示セリフ更新時に一番下までスクロール
   const bottomRef = useRef<HTMLDivElement>(null)
@@ -18,7 +25,7 @@ const ChatBox: VFC = () => {
   }, [ scenario.slice(0, state.step) ])
 
   return (
-    <div className={ `${ state.isSqlMode ? styles['sql-mode'] : '' }  ${ styles['chat-box'] }` }>
+    <div className={ `${ isSqlMode ? styles['sql-mode'] : '' }  ${ styles['chat-box'] }` }>
       <div className={ styles.info }><PlayCircleFilledWhiteIcon/>画面上をクリックして話を進める</div>
       <TransitionGroup component='div' >
         { scenario.slice(0, state.step).map(( scenarioStep, index ) =>

@@ -35,7 +35,7 @@ const Insert: VFC = () => {
         setShowResultModal={ setShowResultModal } 
         result='Query OK, 1 row affected (0.00 sec)'/> 
       }
-      <ChatBox />
+      <ChatBox isSqlMode={ isSqlMode }/>
     </Mission>
   )
 }
