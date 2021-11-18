@@ -7,7 +7,7 @@ import H4 from '../atoms/H4'
 import missionSlice from '@/redux/missions/slice'
 import { useDispatch } from 'react-redux'
 import { useMissionState } from '@/redux/missions/selectors'
-import mission from '@/pages/mission'
+import mission from '@/pages/mission/insert'
 
 interface PROPS {
   result?: string,
