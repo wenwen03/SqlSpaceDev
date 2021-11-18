@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import Missin01 from '@/scenarios/Mission01'
-import Chat from '@/types/Chat';
+import Chat from '@/types/Serif';
 import ResidenceEntity from '@/types/ResidenceEntity';
 import ResidenceRow from '@/types/ResidenceRow';
 import InsertScenario from '@/scenarios/InsertScenario';
+import ScenarioStep from '@/types/ScenarioStep';
 
 export interface MissionState {
   isEmphasize: Object,
   initialText: string,
   step: number,
   goal: string,
-  scenario: Array<Chat>
+  scenario: Array<ScenarioStep>
   showCompleteModal: boolean,
   showResultModal: boolean,
   isSqlMode: boolean,
@@ -22,7 +22,7 @@ export const initialState: MissionState = {
   initialText: '',
   step: 1,
   goal: '画面をクリックするとストリーが進みます',
-  scenario: Missin01,
+  scenario: InsertScenario,
   showCompleteModal: false,
   showResultModal: false,
   isSqlMode: false,
