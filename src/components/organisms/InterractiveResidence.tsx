@@ -1,6 +1,6 @@
 import React, { useState, VFC } from 'react'
 import Residence from '../molucules/Residence'
-import ResidenceWindow from './ArchitectWindow'
+import ArchitectureWindow from './ArchitectWindow'
 import styles from '@/styles/components/organisms/InteractiveResidence.module.scss'
 import ResidenceEntity from '@/types/ResidenceEntity'
 
@@ -26,7 +26,7 @@ const InterractiveResidence: VFC<PROPS> = ({
     <div className={ styles['interactive-residence'] }>
       <Residence focusFunc={ focus }/>
       { 
-        focusFlg && <ResidenceWindow
+        focusFlg && <ArchitectureWindow
           setIsSqlMode={ setIsSqlMode }
           entity={ entity }
           clickaway={ clickaway } 
