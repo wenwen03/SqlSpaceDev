@@ -9,13 +9,12 @@ import CompleteModal from '@/components/organisms/CompleteModal'
 import RunResultWindow from '@/components/organisms/RunResultWindow'
 import { useDispatch } from 'react-redux'
 import missionSlice from '@/redux/missions/slice'
-import SelectScenario from '@/scenarios/SelectScenario'
 import SpaceWoodList from '@/components/organisms/SpaceWoodList'
 
 const Select: VFC = () => {
 
   const dispatch = useDispatch()
-  dispatch(missionSlice.actions.setInitialState(SelectScenario))
+  dispatch(missionSlice.actions.setInitialState('select'))
 
   const [isSqlMode, setIsSqlMode] = useState(false)
   const [showResultModal, setShowResultModal] = useState(false)

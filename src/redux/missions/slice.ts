@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import TableEntity from '@/types/TableEntity';
 import TableRow from '@/types/TableRow';
-import InsertScenario from '@/scenarios/InsertScenario';
-import ScenarioStep from '@/types/ScenarioStep';
+import getTargetScenario from '@/utils/getTargetScenario';
 
 export interface MissionState {
-  scenario: Array<ScenarioStep>,
+  missionName: string,
   step: number,
   goal: string,
   initialText: string,
@@ -20,7 +19,7 @@ export const initialState: MissionState = {
   initialText: '',
   step: 1,
   goal: '画面をクリックするとストリーが進みます',
-  scenario: InsertScenario,
+  missionName: 'insert',
   showCompleteModal: false,
   residenceList: [
     {
@@ -43,11 +42,12 @@ const missionSlice = createSlice({
   initialState,
   reducers: {
     setInitialState: (state, action) => {
-      state.scenario = action.payload
+      state.missionName = action.payload
     },
     nextStep: (state, action: PayloadAction<string>) => {
-      if(InsertScenario[state.step].condition !== action.payload) return
-      InsertScenario[state.step].action(state)
+      const scenario = getTargetScenario(state.missionName)
+      if(scenario[state.step].condition !== action.payload) return
+      scenario[state.step].action(state)
     },
     pushResidenceList: (state, action: PayloadAction<TableRow>) => {
       state.residenceList[0].rows.push(action.payload)

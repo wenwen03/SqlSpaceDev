@@ -15,7 +15,7 @@ import InsertScenario from '@/scenarios/InsertScenario'
 const Insert: VFC = () => {
 
   const dispatch = useDispatch()
-  dispatch(missionSlice.actions.setInitialState(InsertScenario))
+  dispatch(missionSlice.actions.setInitialState('insert'))
 
   const [isSqlMode, setIsSqlMode] = useState(false)
   const [showResultModal, setShowResultModal] = useState(false)
