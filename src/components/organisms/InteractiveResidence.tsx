@@ -9,7 +9,7 @@ interface PROPS {
   setIsSqlMode: (boolean) => void
 }
 
-const InterractiveResidence: VFC<PROPS> = ({
+const InteractiveResidence: VFC<PROPS> = ({
   entity,
   setIsSqlMode
 }) => { 
@@ -27,6 +27,8 @@ const InterractiveResidence: VFC<PROPS> = ({
       <Residence focusFunc={ focus }/>
       { 
         focusFlg && <ArchitectureWindow
+          title='Residence'
+          btnLabel='create room'
           setIsSqlMode={ setIsSqlMode }
           entity={ entity }
           clickaway={ clickaway } 
@@ -36,4 +38,4 @@ const InterractiveResidence: VFC<PROPS> = ({
   )
  }
 
-export default InterractiveResidence
+export default InteractiveResidence

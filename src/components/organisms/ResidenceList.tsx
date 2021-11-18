@@ -1,6 +1,6 @@
 import { useMissionState } from '@/redux/missions/selectors'
 import React, { VFC } from 'react'
-import InterractiveResidence from './InterractiveResidence'
+import InteractiveResidence from './InteractiveResidence'
 
 interface PROPS {
   setIsSqlMode: (boolean) => void
@@ -16,7 +16,7 @@ const ResidenceList: VFC<PROPS> = ({
     <>
       {
         state.residenceList.map(( residence, index ) => 
-          <InterractiveResidence 
+          <InteractiveResidence 
             key={ index }
             entity={ residence }
             setIsSqlMode={ setIsSqlMode }
