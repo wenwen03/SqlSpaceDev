@@ -7,9 +7,15 @@ import SQLRunner from '@/components/organisms/SQLRunner'
 import CompleteModal from '@/components/organisms/CompleteModal'
 import RunResultWindow from '@/components/organisms/RunResultWindow'
 import ResidenceList from '@/components/organisms/ResidenceList'
+import missionSlice from '@/redux/missions/slice'
+import { useDispatch } from 'react-redux'
+import InsertScenario from '@/scenarios/InsertScenario'
 
 
-const insert: VFC = () => {
+const Insert: VFC = () => {
+
+  const dispatch = useDispatch()
+  dispatch(missionSlice.actions.setInitialState(InsertScenario))
 
   return (
     <Mission
@@ -26,4 +32,4 @@ const insert: VFC = () => {
   )
 }
 
-export default insert
+export default Insert
