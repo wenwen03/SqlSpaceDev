@@ -4,13 +4,13 @@ import TitleWindow from '../molucules/TitleWindow'
 import WindowFrame from '../molucules/WindowFrame'
 import styles from '@/styles/components/organisms/ArchitectureWindow.module.scss'
 import animations from '@/styles/components/animations/Emphasize.module.scss';
-import ResidenceEntity from '@/types/ResidenceEntity'
+import TableEntity from '@/types/TableEntity'
 import { useMissionState } from '@/redux/missions/selectors'
 
 interface PROPS {
   clickaway: () => void,
   setIsSqlMode: (boolean) => void,
-  entity: ResidenceEntity
+  entity: TableEntity
 }
 
 const ArchitectureWindow: VFC<PROPS> = ({

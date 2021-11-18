@@ -2,10 +2,10 @@ import React, { useState, VFC } from 'react'
 import Residence from '../molucules/Residence'
 import ArchitectureWindow from './ArchitectWindow'
 import styles from '@/styles/components/organisms/InteractiveResidence.module.scss'
-import ResidenceEntity from '@/types/ResidenceEntity'
+import TableEntity from '@/types/TableEntity'
 
 interface PROPS {
-  entity: ResidenceEntity,
+  entity: TableEntity,
   setIsSqlMode: (boolean) => void
 }
 

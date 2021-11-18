@@ -1,11 +1,11 @@
-import ResidenceEntity from '@/types/ResidenceEntity';
+import TableEntity from '@/types/TableEntity';
 import React, { useState, VFC } from 'react'
 import SpaceWood from '../molucules/SpaceWood';
 import styles from '@/styles/components/organisms/InteractiveSpaceWood.module.scss'
 import ArchitectureWindow from './ArchitectWindow';
 
 interface PROPS {
-  entity: ResidenceEntity,
+  entity: TableEntity,
   setIsSqlMode: (boolean) => void
 }
 

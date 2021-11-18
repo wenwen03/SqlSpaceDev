@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import ResidenceEntity from '@/types/ResidenceEntity';
 import ResidenceRow from '@/types/ResidenceRow';
+import TableEntity from '@/types/TableEntity';
 import InsertScenario from '@/scenarios/InsertScenario';
 import ScenarioStep from '@/types/ScenarioStep';
 
@@ -11,7 +11,7 @@ export interface MissionState {
   initialText: string,
   isEmphasize: Object,
   showCompleteModal: boolean,
-  residenceList: Array<ResidenceEntity>
+  residenceList: Array<TableEntity>,
 };
 
 export const initialState: MissionState = {
