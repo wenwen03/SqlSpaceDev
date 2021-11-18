@@ -10,13 +10,17 @@ import { useMissionState } from '@/redux/missions/selectors'
 interface PROPS {
   clickaway: () => void,
   setIsSqlMode: (boolean) => void,
-  entity: TableEntity
+  entity: TableEntity,
+  title: string,
+  btnLabel: string
 }
 
 const ArchitectureWindow: VFC<PROPS> = ({
   clickaway,
   setIsSqlMode,
-  entity
+  entity,
+  title,
+  btnLabel
 }) => {
 
   const state = useMissionState().mission
@@ -39,6 +43,8 @@ const ArchitectureWindow: VFC<PROPS> = ({
       >
         { !tableFlg ? 
           <TitleWindow 
+            title={ title }
+            btnLabel={ btnLabel }
             onClick={ toTable }
             current={0} 
             max={0} 

@@ -27,6 +27,8 @@ const InteractiveSpaceWood: VFC<PROPS> = ({
       <SpaceWood onFocus={ focus }/>
       { 
         focusFlg && <ArchitectureWindow
+          title='SpaceTree'
+          btnLabel='get resource'
           setIsSqlMode={ setIsSqlMode }
           entity={ entity }
           clickaway={ clickaway } 
