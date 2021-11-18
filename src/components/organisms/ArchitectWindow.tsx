@@ -2,7 +2,7 @@ import React, { useState, VFC } from 'react'
 import TableWindow from '../molucules/TableWindow'
 import TitleWindow from '../molucules/TitleWindow'
 import WindowFrame from '../molucules/WindowFrame'
-import styles from '@/styles/components/organisms/ResidenceWindow.module.scss'
+import styles from '@/styles/components/organisms/ArchitectureWindow.module.scss'
 import animations from '@/styles/components/animations/Emphasize.module.scss';
 import ResidenceEntity from '@/types/ResidenceEntity'
 import { useMissionState } from '@/redux/missions/selectors'
@@ -13,7 +13,7 @@ interface PROPS {
   entity: ResidenceEntity
 }
 
-const ResidenceWindow: VFC<PROPS> = ({
+const ArchitectureWindow: VFC<PROPS> = ({
   clickaway,
   setIsSqlMode,
   entity
@@ -34,7 +34,7 @@ const ResidenceWindow: VFC<PROPS> = ({
 
   return (
       <WindowFrame 
-        className={`${ styles['residence-window'] } ${ state.isEmphasize['residenceWindow'] ? animations.emphasize : ''}`} 
+        className={`${ styles['architecure-window'] } ${ state.isEmphasize['residenceWindow'] ? animations.emphasize : ''}`} 
         clickaway={ clickaway }
       >
         { !tableFlg ? 
@@ -54,4 +54,4 @@ const ResidenceWindow: VFC<PROPS> = ({
   )
 }
 
-export default ResidenceWindow
+export default ArchitectureWindow

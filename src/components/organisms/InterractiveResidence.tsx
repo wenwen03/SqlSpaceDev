@@ -1,6 +1,6 @@
 import React, { useState, VFC } from 'react'
 import Residence from '../molucules/Residence'
-import ResidenceWindow from './ResidenceWindow'
+import ResidenceWindow from './ArchitectWindow'
 import styles from '@/styles/components/organisms/InteractiveResidence.module.scss'
 import ResidenceEntity from '@/types/ResidenceEntity'
 
