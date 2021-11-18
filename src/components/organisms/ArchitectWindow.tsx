@@ -34,7 +34,7 @@ const ArchitectureWindow: VFC<PROPS> = ({
 
   return (
       <WindowFrame 
-        className={`${ styles['architecure-window'] } ${ state.isEmphasize['residenceWindow'] ? animations.emphasize : ''}`} 
+        className={`${ styles['architecture-window'] } ${ state.isEmphasize['residenceWindow'] ? animations.emphasize : ''}`} 
         clickaway={ clickaway }
       >
         { !tableFlg ? 
