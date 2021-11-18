@@ -5,7 +5,7 @@ import RewardCard from '../molucules/HintCard'
 import SqlBtnCard from '../molucules/SqlBtnCard'
 import { useMissionState } from '@/redux/missions/selectors'
 import { useDispatch } from 'react-redux'
-import ResidenceRow from '@/types/ResidenceRow'
+import TableRow from '@/types/TableRow'
 import missionSlice from '@/redux/missions/slice'
 
 interface PROPS {
@@ -23,7 +23,7 @@ const SQLRunner: VFC<PROPS> = ({
 
     const today = new Date().toLocaleDateString()
 
-    let record: ResidenceRow;
+    let record: TableRow;
     switch( state.residenceList[0].rows.length) {
       case 0: record = { 'room_no': 101, name: 'dog', 'moved_at': today }; break;
       case 1: record = { 'room_no': 102, name: 'test-user', 'moved_at': today }; break;

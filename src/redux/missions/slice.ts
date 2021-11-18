@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import ResidenceRow from '@/types/ResidenceRow';
 import TableEntity from '@/types/TableEntity';
+import TableRow from '@/types/TableRow';
 import InsertScenario from '@/scenarios/InsertScenario';
 import ScenarioStep from '@/types/ScenarioStep';
 
@@ -41,7 +41,7 @@ const missionSlice = createSlice({
       if(InsertScenario[state.step].condition !== action.payload) return
       InsertScenario[state.step].action(state)
     },
-    pushResidenceList: (state, action: PayloadAction<ResidenceRow>) => {
+    pushResidenceList: (state, action: PayloadAction<TableRow>) => {
       state.residenceList[0].rows.push(action.payload)
     },
   },
