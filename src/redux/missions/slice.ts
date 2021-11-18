@@ -11,7 +11,6 @@ export interface MissionState {
   initialText: string,
   isEmphasize: Object,
   showCompleteModal: boolean,
-  showResultModal: boolean,
   residenceList: Array<ResidenceEntity>
 };
 
@@ -22,7 +21,6 @@ export const initialState: MissionState = {
   goal: '画面をクリックするとストリーが進みます',
   scenario: InsertScenario,
   showCompleteModal: false,
-  showResultModal: false,
   residenceList: [
     {
       name: 'house01',
@@ -43,10 +41,6 @@ const missionSlice = createSlice({
       if(InsertScenario[state.step].condition !== action.payload) return
       InsertScenario[state.step].action(state)
     },
-    updateShowResultModal: (state, action: PayloadAction<boolean>) => ({
-      ...state,
-      showResultModal: action.payload
-    }),
     pushResidenceList: (state, action: PayloadAction<ResidenceRow>) => {
       state.residenceList[0].rows.push(action.payload)
     },

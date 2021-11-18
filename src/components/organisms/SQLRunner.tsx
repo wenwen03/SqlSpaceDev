@@ -9,9 +9,12 @@ import ResidenceRow from '@/types/ResidenceRow'
 import missionSlice from '@/redux/missions/slice'
 
 interface PROPS {
+  setShowResultModal: (boolean) => void
 }
 
-const SQLRunner: VFC<PROPS> = () => {
+const SQLRunner: VFC<PROPS> = ({
+  setShowResultModal
+}) => {
 
   const state = useMissionState().mission
   const dispatch = useDispatch()
@@ -29,7 +32,7 @@ const SQLRunner: VFC<PROPS> = () => {
     }
 
     dispatch(missionSlice.actions.pushResidenceList(record))
-    dispatch(missionSlice.actions.updateShowResultModal(true))
+    setShowResultModal(false)
   }
 
 

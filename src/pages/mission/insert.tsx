@@ -18,6 +18,7 @@ const Insert: VFC = () => {
   dispatch(missionSlice.actions.setInitialState(InsertScenario))
 
   const [isSqlMode, setIsSqlMode] = useState(false)
+  const [showResultModal, setShowResultModal] = useState(false)
 
   return (
     <Mission
@@ -25,10 +26,15 @@ const Insert: VFC = () => {
       wholeClass={ styles.layout }
     >
       <CompleteModal/>
-      { !isSqlMode && <BottomMenu /> }
-      { isSqlMode && <SQLRunner /> }
       <ResidenceList setIsSqlMode={ setIsSqlMode }/>
-      <RunResultWindow result='Query OK, 1 row affected (0.00 sec)'/>
+      { !isSqlMode && <BottomMenu /> }
+      { isSqlMode && <SQLRunner setShowResultModal={ setShowResultModal}/> }
+      {
+        showResultModal && <RunResultWindow 
+        isOpen={ showResultModal } 
+        setShowResultModal={ setShowResultModal } 
+        result='Query OK, 1 row affected (0.00 sec)'/> 
+      }
       <ChatBox />
     </Mission>
   )
