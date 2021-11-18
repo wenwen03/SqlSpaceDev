@@ -34,7 +34,7 @@ const InsertScenario: Array<ScenarioStep> = [
   ),
   createScenarioStep(
     {speaker: 'dog', comment: 'そうそう。まずは部屋を作成するための@「Insert文」のお手本を示すね！@'},
-    state => { state.step += 1; state.initialText = `INSERT INTO yamada_haitsu \n  (id, name, moved_at)\n  VALUES(101, dog, now());`}
+    state => { state.step += 1; state.initialText = `INSERT INTO house01\n  (room_no, name, moved_at)\n  VALUES(101, dog, now());`}
   ),
   createScenarioStep(
     {speaker: 'dog', comment: 'INSERT文はこんな風に使うんだ。\nINSERT INTO  @建物名 （カラム名1, カラム名2, ...）\n@VALUES@（値1, 値2,  ...）@;'},
