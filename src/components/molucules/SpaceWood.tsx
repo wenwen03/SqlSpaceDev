@@ -7,11 +7,13 @@ import missionSlice from '@/redux/missions/slice'
 import { useMissionState } from '@/redux/missions/selectors'
 
 interface PROPS {
-  onFocus: () => void
+  onFocus: () => void,
+  hidden: boolean
 }
 
 const SpaceWood: VFC<PROPS> = ({
-  onFocus
+  onFocus,
+  hidden
 }) => {
 
   const state = useMissionState().mission
@@ -27,7 +29,11 @@ const SpaceWood: VFC<PROPS> = ({
       onClick={ onClick }
       src='/img/resources/space-wood.svg'
       alt='Space Wood'
-      className={`${ styles.architecture } ${ state.isEmphasize['spaceWood'] ? animations.emphasize : '' }`}
+      className={`
+        ${ styles.architecture } 
+        ${ state.isEmphasize['spaceWood'] ? animations.emphasize : '' }
+        ${ hidden ? styles.hidden : ''}
+      `}
       width={ 200 }
       height={ 200 }
     />
