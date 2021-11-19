@@ -18,8 +18,9 @@ const InteractiveSpaceWood: VFC<PROPS> = ({
   setShowCrossSection
 }) => {
 
-  const [ focusFlg, setFocusFlg ] = useState(false);
-  const focus = () => setFocusFlg(true)
+  const [ isFocus, setIsFocus] = useState(false);
+  const focus = () => setIsFocus(true)
+  const unfocus = () => isSqlMode ? void(0) : setIsFocus(false)
 
   const openTable = () => {
     setShowCrossSection(true)
@@ -31,23 +32,18 @@ const InteractiveSpaceWood: VFC<PROPS> = ({
     setIsSqlMode(false)
   }
 
-  const clickaway = () => {
-    // setFocusFlg(false)
-    // endSQL()
-  }
-
   return (
     <div className={`${ styles['interactive-space-wood'] } ${ isSqlMode ? styles['sql-mode'] : '' }`}>
       <SpaceWood onFocus={ focus } hidden={ isSqlMode }/>
       { 
-        focusFlg && <ResourceWindow
+        isFocus && <ResourceWindow
           title='SpaceTree'
           btnLabel='get resource'
           isSqlMode={ isSqlMode }
           openTable={ openTable }
           closeTable={ closeTable }
           entity={ entity }
-          clickaway={ clickaway } 
+          clickaway={ unfocus } 
         />
       }
     </div>

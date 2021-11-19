@@ -16,13 +16,9 @@ const InteractiveResidence: VFC<PROPS> = ({
   setIsSqlMode
 }) => { 
 
-  const [ focusFlg, setFocusFlg ] = useState(false);
-  const focus = () => setFocusFlg(true)
-
-  const clickaway = () => {
-    // setFocusFlg(false)
-    // endSQL()
-  }
+  const [ isFocus, setIsFocus] = useState(false);
+  const focus = () => setIsFocus(true)
+  const unfocus = () => isSqlMode ? void(0) : setIsFocus(false)
 
   const openTable = () => setIsSqlMode(true)
   const closeTable = () => setIsSqlMode(false)
@@ -31,14 +27,14 @@ const InteractiveResidence: VFC<PROPS> = ({
     <div className={ styles['interactive-residence'] }>
       <Residence focusFunc={ focus }/>
       { 
-        focusFlg && <ArchitectureWindow
+        isFocus && <ArchitectureWindow
           title='Residence'
           btnLabel='create room'
           isSqlMode={ isSqlMode }
           openTable={ openTable }
           closeTable={ closeTable }
           entity={ entity }
-          clickaway={ clickaway } 
+          clickaway={ unfocus }
         />
       }
     </div>
