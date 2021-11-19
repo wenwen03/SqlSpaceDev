@@ -2,7 +2,7 @@ import TableEntity from '@/types/TableEntity';
 import React, { useState, VFC } from 'react'
 import SpaceWood from '../molucules/SpaceWood';
 import styles from '@/styles/components/organisms/InteractiveSpaceWood.module.scss'
-import ArchitectureWindow from './ArchitectWindow';
+import ResourceWindow from './ResourceWindow';
 
 interface PROPS {
   entity: TableEntity,
@@ -40,10 +40,9 @@ const InteractiveSpaceWood: VFC<PROPS> = ({
     <div className={`${ styles['interactive-space-wood'] } ${ isSqlMode ? styles['sql-mode'] : '' }`}>
       <SpaceWood onFocus={ focus } hidden={ isSqlMode }/>
       { 
-        focusFlg && <ArchitectureWindow
+        focusFlg && <ResourceWindow
           title='SpaceTree'
           btnLabel='get resource'
-          className={ styles.table }
           isSqlMode={ isSqlMode }
           openTable={ openTable }
           closeTable={ closeTable }
