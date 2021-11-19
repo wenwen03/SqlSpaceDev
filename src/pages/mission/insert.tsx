@@ -9,7 +9,6 @@ import RunResultWindow from '@/components/organisms/RunResultWindow'
 import ResidenceList from '@/components/organisms/ResidenceList'
 import missionSlice from '@/redux/missions/slice'
 import { useDispatch } from 'react-redux'
-import InsertScenario from '@/scenarios/InsertScenario'
 
 
 const Insert: VFC = () => {
@@ -26,7 +25,7 @@ const Insert: VFC = () => {
       wholeClass={ styles.layout }
     >
       <CompleteModal/>
-      <ResidenceList setIsSqlMode={ setIsSqlMode }/>
+      <ResidenceList setIsSqlMode={ setIsSqlMode } isSqlMode={ isSqlMode }/>
       { !isSqlMode && <BottomMenu /> }
       { isSqlMode && <SQLRunner setShowResultModal={ setShowResultModal}/> }
       {
