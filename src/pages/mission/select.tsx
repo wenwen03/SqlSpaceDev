@@ -10,6 +10,8 @@ import RunResultWindow from '@/components/organisms/RunResultWindow'
 import { useDispatch } from 'react-redux'
 import missionSlice from '@/redux/missions/slice'
 import SpaceWoodList from '@/components/organisms/SpaceWoodList'
+import MyImg from '@/components/atoms/MyImg'
+import CrossSection from '@/components/molucules/CrossSection'
 
 const Select: VFC = () => {
 
@@ -18,6 +20,7 @@ const Select: VFC = () => {
 
   const [isSqlMode, setIsSqlMode] = useState(false)
   const [showResultModal, setShowResultModal] = useState(false)
+  const [showCorssSection, setShowCrossSection] = useState(false)
 
   return (
     <Mission
@@ -25,8 +28,16 @@ const Select: VFC = () => {
       wholeClass={ styles.layout }
     >
       <CompleteModal/>
-      <ResidenceList setIsSqlMode={ setIsSqlMode }/>
-      <SpaceWoodList setIsSqlMode={ setIsSqlMode }/>
+      <ResidenceList 
+        isSqlMode={ isSqlMode }
+        setIsSqlMode={ setIsSqlMode }
+      />
+      <SpaceWoodList 
+        isSqlMode={ isSqlMode }
+        setIsSqlMode={ setIsSqlMode } 
+        setShowCrossSection={ setShowCrossSection }
+      />
+      { showCorssSection && <CrossSection/> }
       { !isSqlMode && <BottomMenu /> }
       { isSqlMode && <SQLRunner setShowResultModal={ setShowResultModal}/> }
       {
