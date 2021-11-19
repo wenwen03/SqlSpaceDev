@@ -6,16 +6,30 @@ import ArchitectureWindow from './ArchitectWindow';
 
 interface PROPS {
   entity: TableEntity,
-  setIsSqlMode: (boolean) => void
+  isSqlMode: boolean,
+  setIsSqlMode: (boolean) => void,
+  setShowCrossSection: (boolean) => void
 }
 
 const InteractiveSpaceWood: VFC<PROPS> = ({
   entity,
-  setIsSqlMode
+  isSqlMode,
+  setIsSqlMode,
+  setShowCrossSection
 }) => {
 
   const [ focusFlg, setFocusFlg ] = useState(false);
   const focus = () => setFocusFlg(true)
+
+  const openTable = () => {
+    setShowCrossSection(true)
+    setIsSqlMode(true)
+  }
+
+  const closeTable = () => {
+    setShowCrossSection(false)
+    setIsSqlMode(false)
+  }
 
   const clickaway = () => {
     // setFocusFlg(false)
@@ -29,7 +43,9 @@ const InteractiveSpaceWood: VFC<PROPS> = ({
         focusFlg && <ArchitectureWindow
           title='SpaceTree'
           btnLabel='get resource'
-          setIsSqlMode={ setIsSqlMode }
+          isSqlMode={ isSqlMode }
+          openTable={ openTable }
+          closeTable={ closeTable }
           entity={ entity }
           clickaway={ clickaway } 
         />

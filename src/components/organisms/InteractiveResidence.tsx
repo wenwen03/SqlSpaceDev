@@ -5,11 +5,13 @@ import styles from '@/styles/components/organisms/InteractiveResidence.module.sc
 import TableEntity from '@/types/TableEntity'
 
 interface PROPS {
+  isSqlMode: boolean,
   entity: TableEntity,
   setIsSqlMode: (boolean) => void
 }
 
 const InteractiveResidence: VFC<PROPS> = ({
+  isSqlMode,
   entity,
   setIsSqlMode
 }) => { 
@@ -22,6 +24,9 @@ const InteractiveResidence: VFC<PROPS> = ({
     // endSQL()
   }
 
+  const openTable = () => setIsSqlMode(true)
+  const closeTable = () => setIsSqlMode(false)
+
   return (
     <div className={ styles['interactive-residence'] }>
       <Residence focusFunc={ focus }/>
@@ -29,7 +34,9 @@ const InteractiveResidence: VFC<PROPS> = ({
         focusFlg && <ArchitectureWindow
           title='Residence'
           btnLabel='create room'
-          setIsSqlMode={ setIsSqlMode }
+          isSqlMode={ isSqlMode }
+          openTable={ openTable }
+          closeTable={ closeTable }
           entity={ entity }
           clickaway={ clickaway } 
         />
