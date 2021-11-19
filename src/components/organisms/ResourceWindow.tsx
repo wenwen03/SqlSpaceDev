@@ -28,6 +28,8 @@ const ResourceWindow: VFC<PROPS> = ({
   btnLabel
 }) => {
 
+  const state = useMissionState().mission
+
   const titleWindow = (
     <WindowFrame
       clickaway={ clickaway } 
@@ -46,7 +48,10 @@ const ResourceWindow: VFC<PROPS> = ({
   const tableWindow = (
     <div className={ styles['table-window'] }>
       <TaskCard/>
-      <WindowFrame clickaway={ clickaway }>
+      <WindowFrame 
+        clickaway={ clickaway }
+        className={ state.isEmphasize['resourceWindow'] ? animations.emphasize : '' }
+      >
         <TableWindow
           title={ entity.name }
           onClick={ closeTable }
