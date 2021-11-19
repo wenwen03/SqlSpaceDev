@@ -1,4 +1,4 @@
-import React, { useState, VFC } from 'react'
+import React, { VFC } from 'react'
 import TableWindow from '../molucules/TableWindow'
 import TitleWindow from '../molucules/TitleWindow'
 import WindowFrame from '../molucules/WindowFrame'
@@ -9,7 +9,9 @@ import { useMissionState } from '@/redux/missions/selectors'
 
 interface PROPS {
   clickaway: () => void,
-  setIsSqlMode: (boolean) => void,
+  openTable: () => void,
+  closeTable: () => void,
+  isSqlMode: boolean,
   entity: TableEntity,
   title: string,
   btnLabel: string
@@ -17,7 +19,9 @@ interface PROPS {
 
 const ArchitectureWindow: VFC<PROPS> = ({
   clickaway,
-  setIsSqlMode,
+  openTable,
+  closeTable,
+  isSqlMode,
   entity,
   title,
   btnLabel
@@ -25,33 +29,22 @@ const ArchitectureWindow: VFC<PROPS> = ({
 
   const state = useMissionState().mission
 
-  // テーブル表示切替
-  const [tableFlg, setTableFlg] = useState(false)
-  const toTable = function(): void {
-    setTableFlg(true)
-    setIsSqlMode(true)
-  }
-  const toTitle = function(): void {
-    setTableFlg(false)
-    setIsSqlMode(false)
-  }
-
   return (
       <WindowFrame 
         className={`${ styles['architecture-window'] } ${ state.isEmphasize['architectureWindow'] ? animations.emphasize : ''}`} 
         clickaway={ clickaway }
       >
-        { !tableFlg ? 
+        { !isSqlMode ? 
           <TitleWindow 
             title={ title }
             btnLabel={ btnLabel }
-            onClick={ toTable }
+            onClick={ openTable }
             current={0} 
             max={0} 
           /> :
           <TableWindow
             title={ entity.name }
-            onClick={ toTitle }
+            onClick={ closeTable }
             columns={ entity.columns }
             rows={ entity.rows }
           />
