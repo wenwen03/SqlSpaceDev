@@ -3,11 +3,15 @@ import React, { VFC } from 'react'
 import InteractiveSpaceWood from './InteractiveSpaceWood'
 
 interface PROPS {
-  setIsSqlMode: (boolean) => void
+  setIsSqlMode: (boolean) => void,
+  setShowCrossSection: (boolean) => void,
+  isSqlMode: boolean
 }
 
 const SpaceWoodList: VFC<PROPS> = ({
-  setIsSqlMode
+  setIsSqlMode,
+  setShowCrossSection,
+  isSqlMode
 }) => {
 
   const state = useMissionState().mission
@@ -19,7 +23,9 @@ const SpaceWoodList: VFC<PROPS> = ({
           <InteractiveSpaceWood
             key={ index }
             entity={ wood }
+            isSqlMode={ isSqlMode }
             setIsSqlMode={ setIsSqlMode }
+            setShowCrossSection={ setShowCrossSection }
           />
         )
       }
