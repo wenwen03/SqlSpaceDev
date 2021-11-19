@@ -12,6 +12,7 @@ export interface MissionState {
   showCompleteModal: boolean,
   residenceList: Array<TableEntity>,
   spaceWoodList: Array<TableEntity>
+  tasks: Array<string>
 };
 
 export const initialState: MissionState = {
@@ -34,7 +35,8 @@ export const initialState: MissionState = {
       columns: ['id', 'hardness', 'density'],
       rows:  []
     }
-  ]
+  ],
+  tasks: ['hardnessが70以上のSpaceWoodを取得して下さい']
 };
 
 const missionSlice = createSlice({
