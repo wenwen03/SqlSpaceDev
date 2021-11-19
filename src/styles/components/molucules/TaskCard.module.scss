@@ -1,0 +1,7 @@
+@import '../../mixins/margin.scss';
+
+.task-card {
+  width: 100%;
+  height: 100px;
+  margin: $margin-mvw 0;
+}
