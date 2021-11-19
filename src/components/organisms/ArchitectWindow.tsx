@@ -11,6 +11,7 @@ interface PROPS {
   clickaway: () => void,
   openTable: () => void,
   closeTable: () => void,
+  className?: string,
   isSqlMode: boolean,
   entity: TableEntity,
   title: string,
@@ -21,6 +22,7 @@ const ArchitectureWindow: VFC<PROPS> = ({
   clickaway,
   openTable,
   closeTable,
+  className,
   isSqlMode,
   entity,
   title,
@@ -31,7 +33,11 @@ const ArchitectureWindow: VFC<PROPS> = ({
 
   return (
       <WindowFrame 
-        className={`${ styles['architecture-window'] } ${ state.isEmphasize['architectureWindow'] ? animations.emphasize : ''}`} 
+        className={`
+          ${ styles['architecture-window'] } 
+          ${ state.isEmphasize['architectureWindow'] ? animations.emphasize : ''}
+          ${ isSqlMode ? className : ''}`
+        } 
         clickaway={ clickaway }
       >
         { !isSqlMode ? 
