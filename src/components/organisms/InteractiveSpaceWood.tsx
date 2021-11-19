@@ -37,12 +37,13 @@ const InteractiveSpaceWood: VFC<PROPS> = ({
   }
 
   return (
-    <div className={ styles['interactive-space-wood'] }>
-      <SpaceWood onFocus={ focus }/>
+    <div className={`${ styles['interactive-space-wood'] } ${ isSqlMode ? styles['sql-mode'] : '' }`}>
+      <SpaceWood onFocus={ focus } hidden={ isSqlMode }/>
       { 
         focusFlg && <ArchitectureWindow
           title='SpaceTree'
           btnLabel='get resource'
+          className={ styles.table }
           isSqlMode={ isSqlMode }
           openTable={ openTable }
           closeTable={ closeTable }
