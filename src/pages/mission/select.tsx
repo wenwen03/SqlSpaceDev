@@ -10,7 +10,6 @@ import RunResultWindow from '@/components/organisms/RunResultWindow'
 import { useDispatch } from 'react-redux'
 import missionSlice from '@/redux/missions/slice'
 import SpaceWoodList from '@/components/organisms/SpaceWoodList'
-import MyImg from '@/components/atoms/MyImg'
 import CrossSection from '@/components/molucules/CrossSection'
 
 const Select: VFC = () => {
