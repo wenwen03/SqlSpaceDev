@@ -1,5 +1,5 @@
-export default interface TableRow{
-  'room_no': number,
-  name: string,
-  'moved_at': string
-}
+import SpaceTreeRow from "./SpaceTreeRow";
+import ResidenceRow from "./ResidenceRow"
+
+type TableRow = ResidenceRow | SpaceTreeRow
+export default TableRow;

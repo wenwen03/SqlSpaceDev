@@ -1,17 +1,18 @@
 import TableEntity from '@/types/TableEntity';
 import React, { useState, VFC } from 'react'
-import SpaceWood from '../molucules/SpaceWood';
-import styles from '@/styles/components/organisms/InteractiveSpaceWood.module.scss'
+import SpaceTree from '../molucules/SpaceTree';
+import styles from '@/styles/components/organisms/InteractiveSpaceTree.module.scss'
 import ResourceWindow from './ResourceWindow';
+import SpaceTreeEntity from '@/types/SpaceTreeEntity';
 
 interface PROPS {
-  entity: TableEntity,
+  entity: SpaceTreeEntity,
   isSqlMode: boolean,
   setIsSqlMode: (boolean) => void,
   setShowCrossSection: (boolean) => void
 }
 
-const InteractiveSpaceWood: VFC<PROPS> = ({
+const InteractiveSpaceTree: VFC<PROPS> = ({
   entity,
   isSqlMode,
   setIsSqlMode,
@@ -33,8 +34,8 @@ const InteractiveSpaceWood: VFC<PROPS> = ({
   }
 
   return (
-    <div className={`${ styles['interactive-space-wood'] } ${ isSqlMode ? styles['sql-mode'] : '' }`}>
-      <SpaceWood onFocus={ focus } hidden={ isSqlMode }/>
+    <div className={`${ styles['interactive-space-tree'] } ${ isSqlMode ? styles['sql-mode'] : '' }`}>
+      <SpaceTree onFocus={ focus } hidden={ isSqlMode }/>
       { 
         isFocus && <ResourceWindow
           title='SpaceTree'
@@ -50,4 +51,4 @@ const InteractiveSpaceWood: VFC<PROPS> = ({
   )
 }
 
-export default InteractiveSpaceWood
+export default InteractiveSpaceTree

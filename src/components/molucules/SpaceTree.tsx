@@ -11,7 +11,7 @@ interface PROPS {
   hidden: boolean
 }
 
-const SpaceWood: VFC<PROPS> = ({
+const SpaceTree: VFC<PROPS> = ({
   onFocus,
   hidden
 }) => {
@@ -20,18 +20,18 @@ const SpaceWood: VFC<PROPS> = ({
 
   const dispatch = useDispatch()
   const onClick = () => {
-    dispatch(missionSlice.actions.nextStep('spaceWood'))
+    dispatch(missionSlice.actions.nextStep('spaceTree'))
     onFocus()
   }
 
   return (
     <MyImg
       onClick={ onClick }
-      src='/img/resources/space-wood.svg'
+      src='/img/resources/space-tree.svg'
       alt='Space Wood'
       className={`
         ${ styles.architecture } 
-        ${ state.isEmphasize['spaceWood'] ? animations.emphasize : '' }
+        ${ state.isEmphasize['spaceTree'] ? animations.emphasize : '' }
         ${ hidden ? styles.hidden : ''}
       `}
       width={ 200 }
@@ -40,4 +40,4 @@ const SpaceWood: VFC<PROPS> = ({
   )
 }
 
-export default SpaceWood
+export default SpaceTree

@@ -1,6 +1,6 @@
 import { useMissionState } from '@/redux/missions/selectors'
 import React, { VFC } from 'react'
-import InteractiveSpaceWood from './InteractiveSpaceWood'
+import InteractiveSpaceTree from './InteractiveSpaceTree'
 
 interface PROPS {
   setIsSqlMode: (boolean) => void,
@@ -8,7 +8,7 @@ interface PROPS {
   isSqlMode: boolean
 }
 
-const SpaceWoodList: VFC<PROPS> = ({
+const SpaceTreeList: VFC<PROPS> = ({
   setIsSqlMode,
   setShowCrossSection,
   isSqlMode
@@ -19,8 +19,8 @@ const SpaceWoodList: VFC<PROPS> = ({
   return (
     <>
       {
-        state.spaceWoodList.map(( wood, index ) => 
-          <InteractiveSpaceWood
+        state.spaceTreeList.map(( wood, index ) => 
+          <InteractiveSpaceTree
             key={ index }
             entity={ wood }
             isSqlMode={ isSqlMode }
@@ -32,4 +32,4 @@ const SpaceWoodList: VFC<PROPS> = ({
     </>
   )
 }
-export default SpaceWoodList
+export default SpaceTreeList

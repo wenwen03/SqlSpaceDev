@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import TableEntity from '@/types/TableEntity';
-import TableRow from '@/types/TableRow';
 import getTargetScenario from '@/utils/getTargetScenario';
 import SpaceTreeEntity from '@/types/SpaceTreeEntity';
+import ResidenceRow from '@/types/ResidenceRow';
+import ResidenceEntity from '@/types/ResidenceEntity';
 
 export interface MissionState {
   missionName: string,
@@ -11,8 +11,8 @@ export interface MissionState {
   initialText: string,
   isEmphasize: Object,
   showCompleteModal: boolean,
-  residenceList: Array<TableEntity>,
-  spaceWoodList: Array<SpaceTreeEntity>,
+  residenceList: Array<ResidenceEntity>,
+  spaceTreeList: Array<SpaceTreeEntity>,
   tasks: Array<string>,
   taskStep: number
 };
@@ -31,7 +31,7 @@ export const initialState: MissionState = {
       rows:  []
     }
   ],
-  spaceWoodList: [
+  spaceTreeList: [
     {
       name: 'space_tree',
       columns: ['id', 'name', 'hardness', 'density'],
@@ -91,7 +91,7 @@ const missionSlice = createSlice({
       if(scenario[state.step].condition !== action.payload) return
       scenario[state.step].action(state)
     },
-    pushResidenceList: (state, action: PayloadAction<TableRow>) => {
+    pushResidenceList: (state, action: PayloadAction<ResidenceRow>) => {
       state.residenceList[0].rows.push(action.payload)
     },
   },

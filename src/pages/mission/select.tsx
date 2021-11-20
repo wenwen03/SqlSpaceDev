@@ -9,7 +9,7 @@ import CompleteModal from '@/components/organisms/CompleteModal'
 import RunResultWindow from '@/components/organisms/RunResultWindow'
 import { useDispatch } from 'react-redux'
 import missionSlice from '@/redux/missions/slice'
-import SpaceWoodList from '@/components/organisms/SpaceWoodList'
+import SpaceTreeList from '@/components/organisms/SpaceTreeList'
 import CrossSection from '@/components/molucules/CrossSection'
 
 const Select: VFC = () => {
@@ -31,7 +31,7 @@ const Select: VFC = () => {
         isSqlMode={ isSqlMode }
         setIsSqlMode={ setIsSqlMode }
       />
-      <SpaceWoodList 
+      <SpaceTreeList 
         isSqlMode={ isSqlMode }
         setIsSqlMode={ setIsSqlMode } 
         setShowCrossSection={ setShowCrossSection }

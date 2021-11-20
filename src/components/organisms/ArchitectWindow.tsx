@@ -4,7 +4,7 @@ import TitleWindow from '../molucules/TitleWindow'
 import WindowFrame from '../molucules/WindowFrame'
 import styles from '@/styles/components/organisms/ArchitectureWindow.module.scss'
 import animations from '@/styles/components/animations/Emphasize.module.scss';
-import TableEntity from '@/types/TableEntity'
+import ResidenceEntity from '@/types/ResidenceEntity'
 import { useMissionState } from '@/redux/missions/selectors'
 
 interface PROPS {
@@ -13,7 +13,7 @@ interface PROPS {
   closeTable: () => void,
   className?: string,
   isSqlMode: boolean,
-  entity: TableEntity,
+  entity: ResidenceEntity,
   title: string,
   btnLabel: string
 }

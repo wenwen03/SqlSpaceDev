@@ -7,12 +7,12 @@ const SelectScenario: Array<ScenarioStep> = [
   ),
   createScenarioStep(
     {speaker: 'dog', comment: 'そうね、ただ新しく建設しようにも@資源がないからまずは資源の採掘@をやろう。まずはあの@木をクリック@しよう！'},
-    state => { state.step += 1; state.isEmphasize = { spaceWood: true } },
+    state => { state.step += 1; state.isEmphasize = { spaceTree: true } },
   ),
   createScenarioStep(
     {speaker: 'dog', comment: 'この木から建設のための資源を取得しようか。\n@ボタンをクリック@してね。'},
     state => { state.step += 1; state.isEmphasize = { titleWindowBtn: true } },
-    'spaceWood'
+    'spaceTree'
   ),
   createScenarioStep(
     {speaker: 'human', comment: 'おぉ、また色々と出てきましたね'},

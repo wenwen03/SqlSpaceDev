@@ -1,7 +1,6 @@
-import ResidenceRow from "./TableRow"
+import ResidenceEntity from "./ResidenceEntity"
+import SpaceTreeEntity from "./SpaceTreeEntity"
 
-export default interface TableEntity{
-  name: string,
-  rows: Array<ResidenceRow>,
-  columns: Array<string>
-}
+type TableEntity = ResidenceEntity | SpaceTreeEntity
+
+export default TableEntity;
