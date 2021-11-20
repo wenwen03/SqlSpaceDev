@@ -5,6 +5,8 @@ import Paper from '@/components/atoms/Paper'
 import Button from '@/components/atoms/Button'
 import  Router from 'next/router';
 import styles from '@/styles/components/molucules/MissionPaper.module.scss';
+import { useMissionState } from '@/redux/missions/selectors'
+import MissionMap from '@/scenarios/MissionMap'
 
 interface PROPS {
   purposes: Array<string>
@@ -14,7 +16,11 @@ const MissionPaper: VFC<PROPS> = ({
   purposes,
 }) => {
 
-  const toMission = function(): void { Router.push('/mission/insert') }
+  const state = useMissionState().mission
+  const targetMission = MissionMap[state.missionName]
+  const toMission = () => targetMission.title === 'Locked' ?
+   alert('この機能は未実装です。申し訳ありませんが、他のミッションを試してみて下さい > <') 
+   : Router.push(targetMission.nextPath)
 
   return (
     <Paper className={ styles.missionPaper }>
