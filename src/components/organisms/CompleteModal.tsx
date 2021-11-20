@@ -8,7 +8,7 @@ import Avatar from '../atoms/Avatar'
 import P from '../atoms/P'
 import H5 from '../atoms/H5'
 import { useMissionState } from '@/redux/missions/selectors'
-import ScenarioMap from '@/scenarios/MIssionMap'
+import ScenarioMap from '@/scenarios/MissionMap'
 
 interface PROPS {
   children?: ReactNode,
