@@ -5,8 +5,15 @@ import NameLabel from '@/components/molucules/NameLabel'
 import SkillTree from '@/components/organisms/SkillTree'
 import MissionCard from '@/components/molucules/MissionCard'
 import MissionDesc from '@/components/organisms/MissionDesc'
+import { useMissionState } from '@/redux/missions/selectors'
+import MissionMap from '@/scenarios/MissionMap'
+import { Mission } from '@/types/Mission'
 
 const home: VFC = () => {
+
+  const state = useMissionState().mission
+  const targetMission: Mission = MissionMap[state.missionName]
+
   return (
     <Layout
       title='HOME | SQL Space Dev'
@@ -18,14 +25,9 @@ const home: VFC = () => {
       <MissionDesc className={ styles['mission-desc']} />
       <MissionCard
         className={ styles['mission-card'] }
-        title='INSERT文の基本を学ぼう'
-        description={`
-          この会社には研修がなく、教育制度が整っていないみたい。\n
-          テキトーに応募したのがよくなかったね！\n\n
-          このミッションでは、SQLができることなどを実際にSQLを使用しながら\n
-          学んでいきます。SQLマスターの第一歩を踏み出そう！
-        `}
-        purposes={['SQLとは何かを理解する', 'SQLでできることを理解する']}
+        title={ targetMission.title }
+        description={ targetMission.description }
+        purposes={ targetMission.purposes }
       />
     </Layout>
   )
