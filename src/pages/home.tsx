@@ -9,7 +9,7 @@ import { useMissionState } from '@/redux/missions/selectors'
 import MissionMap from '@/scenarios/MissionMap'
 import { Mission } from '@/types/Mission'
 
-const home: VFC = () => {
+const Home: VFC = () => {
 
   const state = useMissionState().mission
   const targetMission: Mission = MissionMap[state.missionName]
@@ -33,4 +33,4 @@ const home: VFC = () => {
   )
 }
 
-export default home
+export default Home
