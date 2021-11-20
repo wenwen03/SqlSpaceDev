@@ -36,7 +36,7 @@ const SelectScenario: Array<ScenarioStep> = [
   ),
   createScenarioStep(
     {speaker: 'dog', comment: 'Select文の構文はこんな感じなんだ！\nSELECT @取得したいカラム名@ FROM @テーブル名@\nWHERE @条件@;'},
-    state => { state.step += 1; state.initialText = "SELECT * FROM space_wood01\nWHERE name = 'wood'" }
+    state => { state.step += 1; state.initialText = "SELECT * FROM space_wood01\nWHERE name = 'wood'"; state.hint = 'SELECT 取得したいカラム名\n FROM テーブル名 \n WHERE 条件'}
   ),
   createScenarioStep(
     {speaker: 'human', comment: '先輩のお手本には取得したいカラム名のところに@*（アスタリスク）@がありますけどこれはどんな意味があるんですか？'},
@@ -63,7 +63,7 @@ const SelectScenario: Array<ScenarioStep> = [
     {speaker: 'human', comment: 'げ...面倒臭いですね。\n今回は「hardness」が70@以上@とありますけど、これはどうやって条件を書くんですか...？'},
   ),
   createScenarioStep(
-    {speaker: 'dog', comment: '「〜以上」という条件は不等号を使って書くよ。〇〇が70以上であれば「〇〇 >= 70」って書くだけだよ！'},
+    {speaker: 'dog', comment: '「〜以上」という条件は@不等号@を使って書くよ。〇〇が70以上であれば@「〇〇 >= 70」@って書くだけだよ！'},
   ),
   createScenarioStep(
     {speaker: 'human', comment: 'なるほど。今回だと@「hardess >= 70」@ って書けばOKですかね。頑張って下さい！'},
