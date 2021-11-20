@@ -3,6 +3,7 @@ import styles from '@/styles/components/molucules/TaskCard.module.scss'
 import animations from '@/styles/components/animations/Emphasize.module.scss';
 import React, { VFC } from 'react'
 import Card from '../atoms/Card'
+import Chip from '../atoms/Chip';
 
 
 const TaskCard:VFC = () => {
@@ -14,6 +15,7 @@ const TaskCard:VFC = () => {
         ${ state.isEmphasize['taskCard'] ? animations.emphasize : '' }
       `}
     >
+      <Chip label={`Task（${ state.taskStep }/ 3 ）`} className={ styles.label }/>
       { state.tasks[state.taskStep] }
     </Card>
   )
