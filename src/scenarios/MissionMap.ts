@@ -2,7 +2,7 @@ import MissionMap from "@/types/Mission";
 
 const missionMap: MissionMap = {
   Basic: {
-    title: 'Not yet implemented',
+    title: 'Locked',
     nextPath: '/home' ,
     description: 'このミッションは未実装です🙇‍♂️',
     purposes: ['SQLとは何かを理解する', 'SQLでできることを理解する']
