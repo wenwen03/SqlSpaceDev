@@ -1,4 +1,4 @@
-import React, { ReactNode, VFC } from 'react'
+import React, { VFC } from 'react'
 import Card from '@/components/atoms/Card'
 import H6 from '@/components/atoms/H6'
 import P from '../atoms/P'
@@ -22,7 +22,7 @@ const RewardCard: VFC<PROPS> = ({
         <LightbulbIcon/>
         <H6 className={ styles.title }>ヒント</H6>
     </div>
-    <P className={ styles.goal }>{ state.goal }</P>
+    <P className={ styles.goal }>{ state.hint }</P>
   </Card>
 )}
 
