@@ -8,7 +8,7 @@ import Avatar from '../atoms/Avatar'
 import P from '../atoms/P'
 import H5 from '../atoms/H5'
 import { useMissionState } from '@/redux/missions/selectors'
-import ScenarioMap from '@/scenarios/MissionMap'
+import MissionMap from '@/scenarios/MissionMap'
 
 interface PROPS {
   children?: ReactNode,
@@ -19,7 +19,7 @@ const CompleteModal: VFC<PROPS> = () => {
   const state = useMissionState().mission
 
   const toHome = () => Router.push('/home')
-  const nextMissionPath = ScenarioMap[state.missionName].nextPath
+  const nextMissionPath = MissionMap[state.missionName].nextPath
   const next = () => state.missionName === 'insert' ? Router.push(nextMissionPath) :
    alert('クリックしてくれてありがとうございます！デモ版はここまでです。アンケートで良い結果が多くあれば製品版を作成したいと思っています。すぐ終わるので良かったら答えていただければと思います。')
 
