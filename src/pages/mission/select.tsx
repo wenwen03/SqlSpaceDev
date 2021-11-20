@@ -15,7 +15,7 @@ import CrossSection from '@/components/molucules/CrossSection'
 const Select: VFC = () => {
 
   const dispatch = useDispatch()
-  dispatch(missionSlice.actions.setInitialState('select'))
+  dispatch(missionSlice.actions.setInitialState('Select'))
 
   const [isSqlMode, setIsSqlMode] = useState(false)
   const [showResultModal, setShowResultModal] = useState(false)

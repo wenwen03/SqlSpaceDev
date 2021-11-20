@@ -3,8 +3,8 @@ import SelectScenario from "@/scenarios/SelectScenario";
 import ScenarioStep from "@/types/ScenarioStep";
 
 const scenario = {
-  insert: InsertScenario,
-  select: SelectScenario
+  Insert: InsertScenario,
+  Select: SelectScenario
 }
 
 export default function(missionName: string): Array<ScenarioStep> {

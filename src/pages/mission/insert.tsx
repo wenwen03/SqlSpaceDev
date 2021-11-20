@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux'
 const Insert: VFC = () => {
 
   const dispatch = useDispatch()
-  dispatch(missionSlice.actions.setInitialState('insert'))
+  dispatch(missionSlice.actions.setInitialState('Insert'))
 
   const [isSqlMode, setIsSqlMode] = useState(false)
   const [showResultModal, setShowResultModal] = useState(false)
