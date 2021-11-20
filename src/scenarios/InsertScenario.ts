@@ -62,7 +62,7 @@ const InsertScenario: Array<ScenarioStep> = [
   ),
   createScenarioStep(
     {speaker: 'dog', comment: '簡単でしょ！[username]の部屋も追加してみよう！\n@部屋番号: 102@\n@名前: test-user@\n@引越日: [今日の日付]@\nという内容で部屋を追加してみてね！'},
-    state => { state.step += 1; state.goal = 'INSERT INTO 建物名\n（カラム名1, カラム名2, ...）\nVALUES（値1, 値2,  ...）;'},
+    state => { state.step += 1; state.hint = 'INSERT INTO 建物名\n（カラム名1, カラム名2, ...）\nVALUES（値1, 値2,  ...）;'},
   ),
   createScenarioStep(
     {speaker: 'human', comment: 'おぉ、すごいです！さすが期待の新人ですね！'},
