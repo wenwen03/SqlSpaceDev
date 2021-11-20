@@ -1,5 +1,7 @@
 import Grid from '@mui/material/Grid'
 import React, { VFC } from 'react'
+import { useDispatch } from 'react-redux'
+import missionSlice from '@/redux/missions/slice'
 import SkillCircle from '../molucules/SkillCircle'
 
 const missions: Array<Mission> = [
@@ -48,22 +50,31 @@ interface PROPS {
 
 const SkillNodes: VFC<PROPS> = ({
   className
-}) => (
-  <Grid
-    container
-    rowSpacing={1}
-    justifyContent='center'
-    alignItems='center'
-    className={ className }
-  >
-    { missions.map(( mission, index ) => (
-      <SkillCircle
-        skillName={mission.name}
-        status={mission.status}
-        key={index}
-      />
-    ))}
-  </Grid>
-)
+}) => {
+  const dispatch = useDispatch()
+  const selectMission = function(name): () => void {
+    return name ?
+     () => dispatch(missionSlice.actions.setInitialState(name)) : () => void(0)
+  } 
+
+  return (
+    <Grid
+      container
+      rowSpacing={1}
+      justifyContent='center'
+      alignItems='center'
+      className={ className }
+    >
+      { missions.map(( mission, index ) => (
+        <SkillCircle
+          onClick={ selectMission(mission.name) }
+          skillName={mission.name}
+          status={mission.status}
+          key={index}
+        />
+      ))}
+    </Grid>
+  )
+}
 
 export default SkillNodes
