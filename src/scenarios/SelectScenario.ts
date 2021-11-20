@@ -6,11 +6,11 @@ const SelectScenario: Array<ScenarioStep> = [
     {speaker: 'human', comment: 'さて、家が一件あるだけでは殺風景なので、他の建物も欲しいですねー'},
   ),
   createScenarioStep(
-    {speaker: 'dog', comment: 'そうね、ただ新しく建設しようにも資源がないからまずは資源の採掘をやろう。まずはあの木をクリックしよう！'},
+    {speaker: 'dog', comment: 'そうね、ただ新しく建設しようにも@資源がないからまずは資源の採掘@をやろう。まずはあの@木をクリック@しよう！'},
     state => { state.step += 1; state.isEmphasize = { spaceWood: true } },
   ),
   createScenarioStep(
-    {speaker: 'dog', comment: 'この木から建設のための資源を取得しようか。\nボタンをクリックしてね。'},
+    {speaker: 'dog', comment: 'この木から建設のための資源を取得しようか。\n@ボタンをクリック@してね。'},
     state => { state.step += 1; state.isEmphasize = { titleWindowBtn: true } },
     'spaceWood'
   ),
@@ -20,7 +20,7 @@ const SelectScenario: Array<ScenarioStep> = [
     'titleWindowBtn'
   ),
   createScenarioStep(
-    {speaker: 'dog', comment: 'この木から資源を得るためにもSQLを使う必要があるんだよ。資源を得るにはここに書かれているタスクをクリアする必要があるのよ'},
+    {speaker: 'dog', comment: 'この木から資源を得るためにもSQLを使う必要があるんだよ。資源を得るには@ここに書かれているタスクをクリアする必要がある@のよ'},
     state => { state.step += 1; state.isEmphasize = { taskCard: true } },
   ),
   createScenarioStep(
@@ -48,29 +48,29 @@ const SelectScenario: Array<ScenarioStep> = [
     {speaker: 'human', comment: "ほうほう。条件のところでは「name = 'wood'」と指定して「wood」だけを取り出そうとしているんですね"},
   ),
   createScenarioStep(
-    {speaker: 'dog', comment: 'そうだよ。この条件を記述する部分を@「Where句」@と呼んで頻繁に使うから覚えておこうね。\nじゃあRUNボタンを押してみよう！'},
+    {speaker: 'dog', comment: 'そうだよ。この条件を記述する部分を@「Where句」@と呼んで頻繁に使うから覚えておこうね。\nじゃあ@RUNボタンを押してみよう！@'},
     state => { state.step += 1; state.isEmphasize = { runBtn: true } }
   ),
   createScenarioStep(
     {speaker: 'human', comment: 'お、クリアしたみたいですね！...あれ、２つ目のタスクが出てきましたね。'},
-    state => { state.step += 1; state.isEmphasize = {} },
+    state => { state.step += 1; state.isEmphasize = {}; state.taskStep += 1 },
     'runResultModal'
   ),
   createScenarioStep(
     {speaker: 'dog', comment: 'タスクは全部で3つあるから、あと２つだね。'},
   ),
   createScenarioStep(
-    {speaker: 'human', comment: 'げ...面倒臭いですね。'},
+    {speaker: 'human', comment: 'げ...面倒臭いですね。\n今回は「hardness」が70@以上@とありますけど、これはどうやって条件を書くんですか...？'},
   ),
   createScenarioStep(
-    {speaker: 'dog', comment: '慣れていけばサクサク書けるようになるから3問も一瞬だから頑張ろうね。\nじゃあ、残りの２問は新人くんにやってみてもらおうかな。'},
+    {speaker: 'dog', comment: '「〜以上」という条件は不等号を使って書くよ。〇〇が70以上であれば「〇〇 >= 70」って書くだけだよ！'},
   ),
   createScenarioStep(
-    {speaker: 'human', comment: '早くも僕より活躍していますね..。\n僕の分も頑張って下さい！'},
+    {speaker: 'human', comment: 'なるほど。今回だと@「hardess >= 70」@ って書けばOKですかね。頑張って下さい！'},
   ),
   createScenarioStep(
-    {speaker: 'human', comment: 'さすがですね。たくさん資源を獲得できています！\nラストもう一問！'},
-    state => state.step += 1,
+    {speaker: 'human', comment: 'さすがですね。たくさん資源を獲得できています！次は@「未満」@ですね。これも不等号を使ってかけそうですね！\n@「〇〇 < 90」@とかな気がしまします！やってみましょう。'},
+    state => { state.step += 1; state.taskStep += 1 },
     'runResultModal'
   ),
   createScenarioStep(
