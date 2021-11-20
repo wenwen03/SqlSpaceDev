@@ -7,7 +7,7 @@ import ResidenceEntity from '@/types/ResidenceEntity';
 export interface MissionState {
   missionName: string,
   step: number,
-  goal: string,
+  hint: string,
   initialText: string,
   isEmphasize: Object,
   showCompleteModal: boolean,
@@ -21,7 +21,7 @@ export const initialState: MissionState = {
   isEmphasize: {},
   initialText: '',
   step: 1,
-  goal: '画面をクリックするとストリーが進みます',
+  hint: '画面をクリックするとストリーが進みます',
   missionName: 'insert',
   showCompleteModal: false,
   residenceList: [
