@@ -2,7 +2,8 @@ export interface Mission {
   title: string,
   nextPath: string,
   description: string,
-  purposes: Array<string>
+  purposes: Array<string>,
+  imgPath: string
 }
 
 export default interface MissionMap {
