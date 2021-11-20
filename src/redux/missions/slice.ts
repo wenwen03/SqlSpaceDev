@@ -22,7 +22,7 @@ export const initialState: MissionState = {
   initialText: '',
   step: 1,
   hint: '画面をクリックするとストリーが進みます',
-  missionName: 'insert',
+  missionName: 'Insert',
   showCompleteModal: false,
   residenceList: [
     {
