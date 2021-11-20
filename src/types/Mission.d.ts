@@ -6,6 +6,7 @@ export interface Mission {
 }
 
 export default interface MissionMap {
+  Basic: Mission,
   Insert: Mission,
   Select: Mission,
   Update: Mission,
